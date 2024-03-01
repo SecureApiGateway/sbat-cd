@@ -35,6 +35,9 @@ spec:
                   - sortCode: "334412"
                     accountNumber: "30187862"
             rs:
+              data:
+                customerInfo:
+                  enabled: true
               discovery:
                 versions:
                   v3.0: false
@@ -51,8 +54,6 @@ spec:
                   v3.1.10: true
                 apis:
                   # These APIs are not currently implemented
-                  CREATE_FUNDS_CONFIRMATION: false
-                  GET_FUNDS_CONFIRMATION: false
                   CREATE_CALLBACK_URL: false
                   GET_CALLBACK_URLS: false
                   AMEND_CALLBACK_URL: false
