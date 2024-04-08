@@ -1,17 +1,11 @@
-
+---
 environment:
   sapigType: ob
-
-serviceAccount: default
 
 externalCert:
   projectId: example-project
   secretName: sslcert
   certPrefix: dev
-
-openBankingCert:
-  secretName: obwac
-  certPrefix: dev-ob-wac
 
 ig:
   truststore:
@@ -27,7 +21,18 @@ ig:
     secretName: test-trusted-dir-keystore
     fileName: test-trusted-dir-keystore.p12
     googleSecretName: test-trusted-dir-keystore
+
+openBankingCert:
+  secretName: obwac
+  certPrefix: dev-ob-wac
+
+obCaCerts:
+  certPrefix: dev
+  secretName: ob-ca-certs
+
 rcs:
   signing:
     certPrefix: rcs-signing
     secretName: rcs-signing
+
+serviceAccount: default

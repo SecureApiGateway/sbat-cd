@@ -1,0 +1,19 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: {{ .Values.obCaCerts.secretName }}
+spec:
+  refreshInterval: 1h             
+  secretStoreRef:
+    kind: SecretStore
+    name: gcp-store               
+  target:
+    name: {{ .Values.obCaCerts.secretName }}
+    creationPolicy: Owner
+  data:
+  - secretKey: ob-issuing-ca
+    remoteRef:
+      key: {{ .Values.obCaCerts.certPrefix }}-issuing-ca
+  - secretKey: ob-root-ca
+    remoteRef:
+      key: {{ .Values.obCaCerts.certPrefix }}-root-ca
