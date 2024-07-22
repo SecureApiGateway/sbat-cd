@@ -17,12 +17,12 @@ externalCert:
 
 fidcConfigurator:
   enabled: true
-  branch: HEAD
+  branch: ob-v4
   repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer
-  tag: latest
+  tag: latest-v4
 
 ig:
-  tag: latest
+  tag: latest-v4
   branch: HEAD
   truststore:
     # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
@@ -38,14 +38,14 @@ openBankingCert:
   certPrefix: dev-ob-wac
 
 remoteConsentServer:
-  branch: HEAD
+  branch: ob-v4
   repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rcs
-  tag: latest
+  tag: latest-v4
 
 remoteConsentServiceUserInterface:
-  branch: HEAD
+  branch: ob-v4
   repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs
-  tag: latest
+  tag: latest-v4
 
 spec:
   project: default
@@ -53,20 +53,20 @@ spec:
     server: https://kubernetes.default.svc
     namespace: dev
   source:
-    targetRevision: HEAD
+    targetRevision: ob-v4
   syncPolicy: 
     automated:
       prune: true
       selfHeal: true
 
 testFacilityBank:
-  branch: HEAD
+  branch: ob-v4
   repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rs
-  tag: latest
+  tag: latest-v4
 
 testUserAccountCreator:
-  branch: HEAD
+  branch: ob-v4
   deployment:
     type: CronJob
   repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer
-  tag: latest
+  tag: latest-v4
