@@ -12,12 +12,11 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
-    path: core/kustomize/overlay/{{ .Values.environment.kustomizeFolder }}
+    path: core/kustomize/overlay/{{ .Values.environment.kustomizeFolder }}/core
     repoURL: https://github.com/SecureApiGateway/sapig-openbanking-uk-developer-envs
-    targetRevision: {{ .Values.ig.branch }}
+    targetRevision: {{ .Values.devenvs.ig.branch }}
     kustomize:
       images:
-        - europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-core:{{ .Values.ig.tag }}
-        - europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory:{{ .Values.testTrustedDirectory.tag }}
+        - europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-core:{{ .Values.devenvs.ig.tag }}
   syncPolicy:
     {{- toYaml .Values.spec.syncPolicy | nindent 4 }}
