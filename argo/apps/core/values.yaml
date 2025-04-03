@@ -16,15 +16,19 @@ environment:
 
 externalCert:
   projectId: example-project
-  mtls:
-    certPrefix: dev
-    secretName: mtls-tls-cert
-  sapig:
-    certPrefix: dev
-    secretName: sapig-tls-cert
-  ttd:
-    certPrefix: dev
-    secretName: ttd-tls-cert
+  fapiPepAS:
+    mtlsSecretName: fapi-pep-as-mtls-tls-cert
+    mtlsCertPrefix: dev-ob-wac
+    tlsSecretName: fapi-pep-as-tls-cert
+    tlsCertPrefix: dev
+  fapiPepRS:
+    mtlsSecretName: fapi-pep-rs-mtls-tls-cert
+    mtlsCertPrefix: dev-ob-wac
+    tlsSecretName: fapi-pep-rs-tls-cert
+    tlsCertPrefix: dev
+  testTrustedDirectory:
+    tlsSecretName: ttd-tls-cert
+    tlsCertPrefix: dev
 
 fidcConfigurator:
   enabled: true
@@ -33,7 +37,16 @@ fidcConfigurator:
   tag: latest
 
 devenvs:
-  ig:
+  fapiPepAS:
+    tag: latest
+    branch: master
+    truststore:
+      # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
+      googleSecretName: am-oauth2-ca-certs
+    ob:
+      signingkey:
+        googleSecretName: ig-ob-signing-key
+  fapiPepRS:
     tag: latest
     branch: master
     truststore:
