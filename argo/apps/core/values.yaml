@@ -16,10 +16,6 @@ environment:
 
 externalCert:
   projectId: example-project
-  # TODO: Need to remove in future to configure ttd to have its own mtls cert
-  mtls:
-    certPrefix: dev
-    secretName: mtls-tls-cert
   fapiPepAS:
     mtlsSecretName: fapi-pep-as-mtls-tls-cert
     mtlsCertPrefix: dev-ob-wac
