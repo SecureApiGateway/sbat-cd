@@ -21,12 +21,12 @@ externalCert:
     certPrefix: dev
   fapiPepAS:
     mtlsSecretName: fapi-pep-as-mtls-tls-cert
-    mtlsCertPrefix: dev-ob-wac
+    mtlsCertPrefix: dev-as-mtls
     tlsSecretName: fapi-pep-as-tls-cert
     tlsCertPrefix: dev
   fapiPepRS:
     mtlsSecretName: fapi-pep-rs-mtls-tls-cert
-    mtlsCertPrefix: dev-ob-wac
+    mtlsCertPrefix: dev-rs-mtls
     tlsSecretName: fapi-pep-rs-tls-cert
     tlsCertPrefix: dev
   testTrustedDirectory:
