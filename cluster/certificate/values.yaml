@@ -30,7 +30,9 @@ externalCert:
     tlsSecretName: fapi-pep-rs-tls-cert
     tlsCertPrefix: dev
   testTrustedDirectory:
-    tlsSecretName: ttd-tls-cert
+    mtlscaSecretName: test-trusted-directory-mtls-ca-certs
+    mtlscaGoogleSecretName: test-trusted-directory-mtls-ca-certs
+    tlsSecretName: test-trusted-directory-tls-cert
     tlsCertPrefix: dev
 ig:
   truststore:
@@ -43,9 +45,9 @@ ig:
       fileName: ig-ob-signing-key.p12
       googleSecretName: ig-ob-signing-key
   testTrustedDirectory:
-    secretName: test-trusted-dir-keystore
-    fileName: test-trusted-dir-keystore.p12
-    googleSecretName: test-trusted-dir-keystore
+    secretName: test-trusted-directory-keystore
+    fileName: test-trusted-directory-keystore.p12
+    googleSecretName: test-trusted-directory-keystore
 rcs:
   signing:
     certPrefix: rcs-signing
