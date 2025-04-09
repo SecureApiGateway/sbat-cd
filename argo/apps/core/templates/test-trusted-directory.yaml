@@ -42,6 +42,6 @@ spec:
           value: {{ .Values.testTrustedDirectory.secrets.igTestDirectorySigningKeystoreStorepass }}
     path: _infra/helm/secure-api-gateway-test-trusted-directory
     repoURL: https://github.com/SecureApiGateway/secure-api-gateway-test-trusted-directory
-    targetRevision: {{ .Values.devenvs.testTrustedDirectory.branch }}
+    targetRevision: {{ .Values.testTrustedDirectory.branch }}
   syncPolicy:
     {{- toYaml .Values.spec.syncPolicy | nindent 4 }}
