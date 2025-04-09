@@ -79,7 +79,7 @@ testUserAccountCreator:
   tag: latest
 
 testTrustedDirectory:
-  branch: HEAD
+  branch: 1679-use-helm-to-install
   configmap:
     igTestDirectoryFQDN: test-trusted-directory.dev-cdk-core.forgerock.financial
   deployment:
