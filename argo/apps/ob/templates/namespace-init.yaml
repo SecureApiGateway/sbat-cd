@@ -17,11 +17,11 @@ spec:
         - name: externalCert.projectId
           value: {{ .Values.externalCert.projectId }}
         - name: externalCert.mtls.certPrefix
-          value: {{ .Values.externalCert.mtls.certPrefix }}
+          value: {{ .Values.externalCert.ig.mtlsCertPrefix }}
         - name: externalCert.sapig.certPrefix
-          value: {{ .Values.externalCert.sapig.certPrefix }}
+          value: {{ .Values.externalCert.ig.tlsCertPrefix }}
         - name: externalCert.ttd.certPrefix
-          value: {{ .Values.externalCert.ttd.certPrefix }}
+          value: {{ .Values.externalCert.testTrustedDirectory.tlsCertPrefix }}
         - name: ig.truststore.googleSecretName
           value: {{ .Values.devenvs.ig.truststore.googleSecretName }}
         - name: ig.ob.signingkey.googleSecretName
