@@ -81,14 +81,14 @@ testUserAccountCreator:
 testTrustedDirectory:
   branch: 1679-use-helm-to-install
   configmap:
-    igTestDirectoryFQDN: test-trusted-directory.dev-cdk-core.forgerock.financial
+    igTestDirectoryFQDN: test-trusted-directory.-wmorrison365fr-core.forgerock.financial
   deployment:
     repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory
     tag: latest
   ingress:
-    host: test-trusted-directory.dev-cdk-core.forgerock.financial
+    host: test-trusted-directory.-wmorrison365fr-core.forgerock.financial
     tls:
-      host: test-trusted-directory.dev-cdk-core.forgerock.financial
+      host: test-trusted-directory.-wmorrison365fr-core.forgerock.financial
   secrets:
     igMetricsPassword: "dXNlcg=="
     igMetricsUsername: "cGFzc3dvcmQ="
