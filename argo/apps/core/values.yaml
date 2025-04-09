@@ -55,9 +55,6 @@ devenvs:
     ob:
       signingkey:
         googleSecretName: ig-ob-signing-key
-  testTrustedDirectory:
-    tag: latest
-    branch: master
 
 ingress:
   domain: localhost
@@ -80,3 +77,22 @@ testUserAccountCreator:
     type: Job
   repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer
   tag: latest
+
+testTrustedDirectory:
+  branch: HEAD
+  configmap:
+    igTestDirectoryFQDN: test-trusted-directory.dev-cdk-core.forgerock.financial
+  deployment:
+    repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory
+    tag: latest
+  ingress:
+    host: test-trusted-directory.dev-cdk-core.forgerock.financial
+    tls:
+      host: test-trusted-directory.dev-cdk-core.forgerock.financial
+  secrets:
+    igMetricsPassword: "dXNlcg=="
+    igMetricsUsername: "cGFzc3dvcmQ="
+    igTestDirectoryCAKeystoreKeypass: "UGFzc3cwcmQ="
+    igTestDirectoryCAKeystoreStorepass: "UGFzc3cwcmQ="
+    igTestDirectorySigningKeystoreKeypass: "UGFzc3cwcmQ="
+    igTestDirectorySigningKeystoreStorepass: "UGFzc3cwcmQ="
