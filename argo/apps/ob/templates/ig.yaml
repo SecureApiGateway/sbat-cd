@@ -86,8 +86,8 @@ spec:
           value: {{ .Values.ob.secrets.mongodbTestFacilityPassword }}
         - name: secrets.mongodbTestFacilityUsername
           value: {{ .Values.ob.secrets.mongodbTestFacilityUsername }}
-    path: _infra/helm/secure-api-gateway-test-trusted-directory
-    repoURL: https://github.com/SecureApiGateway/secure-api-gateway-test-trusted-directory
-    targetRevision: {{ .Values.testTrustedDirectory.branch }}
+    path: _infra/helm/secure-api-gateway-ob-uk
+    repoURL: https://github.com/SecureApiGateway/secure-api-gateway-ob-uk
+    targetRevision: {{ .Values.ob.branch }}
   syncPolicy:
     {{- toYaml .Values.spec.syncPolicy | nindent 4 }}
