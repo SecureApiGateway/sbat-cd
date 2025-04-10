@@ -45,7 +45,7 @@ fapiPepAs:
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
   deployment:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
-    tag: "latest"
+    tag: "pr-121"
   ingress:
     asMtls:
       host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
