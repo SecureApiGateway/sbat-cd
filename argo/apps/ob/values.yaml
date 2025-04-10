@@ -3,19 +3,15 @@ cloud:
   id: "dev-aic-ob-private-id"
   key: "dev-aic-ob-private-key"
 
-cors:
-  originEnds: "localhost"
-
 environment:
   # CDK value: (Cloud Developer's Kit) development identity platform
   # CDM value: CDM (Cloud Deployment Model) identity cloud platform
   # FIDC value: Cloud Deployment Model) identity cloud platform
   cloudType: "CDK"
+  projectId: "example-project"
   sapigType: "ob"
-  kustomizeFolder: "dev"
 
 externalCert:
-  projectId: "example-project"
   ob:
     mtlsCertPrefix: "dev"
     mtlsSecretName: "mtls-tls-cert"
@@ -43,9 +39,6 @@ devenvs:
     ob:
       signingkey:
         googleSecretName: ig-ob-signing-key
-
-ingress:
-  domain: "localhost"
 
 ob:
   # SH - REVERT TO HEAD

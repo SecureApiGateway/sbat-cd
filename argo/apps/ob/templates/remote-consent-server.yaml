@@ -14,16 +14,12 @@ spec:
   source:
     helm:
       parameters:
-      - name: ingress.domain
-        value: {{ .Values.ingress.domain }}
       - name: deployment.image.repo
         value: {{ .Values.remoteConsentServer.repo }}
       - name: deployment.image.tag
         value: {{ .Values.remoteConsentServer.tag }}
       - name: deployment.mongodb.host
         value: "mongodb-{{ .Release.Name }}"
-      - name: deployment.cors.originEnds
-        value: {{ .Values.cors.originEnds }}
     path: _infra/helm/securebanking-openbanking-uk-rcs
     repoURL: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk-rcs
     targetRevision: {{ .Values.remoteConsentServer.branch }}

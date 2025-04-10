@@ -3,19 +3,15 @@ cloud:
   id: "nightly-private-id"
   key: "nightly-private-key"
 
-cors:
-  originEnds: "localhost"
-
 environment:
   # CDK value: (Cloud Developer's Kit) development identity platform
   # CDM value: CDM (Cloud Deployment Model) identity cloud platform
   # FIDC value: Cloud Deployment Model) identity cloud platform
   cloudType: "CDK"
+  projectId: "example-project"
   sapigType: "core"
-  kustomizeFolder: "dev"
 
 externalCert:
-  projectId: "example-project"
   fapiPepAS:
     mtlsCertPrefix: "dev-as-mtls"
     mtlsSecretName: "fapi-pep-as-mtls-tls-cert"
@@ -57,9 +53,6 @@ devenvs:
     ob:
       signingkey:
         googleSecretName: "ig-ob-signing-key"
-
-ingress:
-  domain: "localhost"
 
 spec:
   project: "default"
