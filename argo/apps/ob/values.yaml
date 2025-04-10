@@ -27,7 +27,8 @@ fidcConfigurator:
   enabled: "true"
   branch: "HEAD"
   repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-  tag: "shaunTesting"
+  # SH - REVERT TO latest
+  tag: "shauntesting"
 
 devenvs:
   ig:
