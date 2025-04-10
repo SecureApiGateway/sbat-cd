@@ -1,82 +1,183 @@
 ---
 cloud:
-  id: nightly-private-id
-  key: nightly-private-key
-
-cors:
-  originEnds: localhost
+  id: "nightly-private-id"
+  key: "nightly-private-key"
 
 environment:
   # CDK value: (Cloud Developer's Kit) development identity platform
   # CDM value: CDM (Cloud Deployment Model) identity cloud platform
   # FIDC value: Cloud Deployment Model) identity cloud platform
-  cloudType: CDK
-  sapigType: core
-  kustomizeFolder: dev
+  cloudType: "CDK"
+  projectId: "example-project"
+  sapigType: "core"
 
 externalCert:
-  projectId: example-project
   fapiPepAS:
-    mtlsSecretName: fapi-pep-as-mtls-tls-cert
-    mtlsCertPrefix: dev-as-mtls
-    tlsSecretName: fapi-pep-as-tls-cert
-    tlsCertPrefix: dev
+    mtlsCertPrefix: "dev-as-mtls"
+    mtlsSecretName: "fapi-pep-as-mtls-tls-cert"
+    tlsCertPrefix: "dev"
+    tlsSecretName: "fapi-pep-as-tls-cert"
   fapiPepRS:
-    mtlsSecretName: fapi-pep-rs-mtls-tls-cert
-    mtlsCertPrefix: dev-rs-mtls
-    tlsSecretName: fapi-pep-rs-tls-cert
-    tlsCertPrefix: dev
+    mtlsCertPrefix: "dev-rs-mtls"
+    mtlsSecretName: "fapi-pep-rs-mtls-tls-cert"
+    tlsCertPrefix: "dev"
+    tlsSecretName: "fapi-pep-rs-tls-cert"
   testTrustedDirectory:
-    tlsSecretName: ttd-tls-cert
-    tlsCertPrefix: dev
+    mtlsCAGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
+    mtlsCASecretName: "test-trusted-directory-mtls-ca-certs"
+    tlsCertPrefix: "dev"
+    tlsSecretName: "test-trusted-directory-tls-cert"
+
+fapiPepAs:
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  configmap:
+    amRealm: "alpha"
+    asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
+    asMtlsFQDN: "as-mtls.sapig.dev-cdk-core.forgerock.financial"
+    baseFQDN: "dev-cdk-core.forgerock.financial"
+    cloudType: "CDK"
+    identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
+    sapigType: "core"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    identityDefaultUserAuthenticationService: "PasswordGrant"
+    identityGoogleSecretStoreName: "ESV"
+    identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
+    # SH - REVERT TO LATEST
+    tag: "pr-121"
+  ingress:
+    asMtls:
+      host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    asSapig:
+      host: "as-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "as-sapig.dev-cdk-ob.forgerock.financial"
+    asIGSstudio:
+      host: "as-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "as-sapig.dev-cdk-ob.forgerock.financial"
+  secrets:
+    igAgentID: "aWctYWdlbnQ="
+    igAgentPassword: "cGFzc3dvcmQ="
+    igClientID: "aWctY2xpZW50"
+    igClientSecret: "cGFzc3dvcmQ="
+    igIDMPassword: "MHBlbkJhbmtpbmch"
+    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    igMetricsPassword: "cGFzc3dvcmQ="
+    igMetricsUsername: "dXNlcg=="
+    igTruststorePassword: "Y2hhbmdlaXQ="
+
+fapiPepRs:
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  configmap:
+    amRealm: "alpha"
+    asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
+    baseFQDN: "dev-cdk-core.forgerock.financial"
+    cloudType: "CDK"
+    identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
+    rsFQDN: "rs-sapig.dev-cdk-core.forgerock.financial"
+    rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
+    sapigType: "core"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    identityDefaultUserAuthenticationService: "PasswordGrant"
+    identityGoogleSecretStoreName: "ESV"
+    identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-core"
+    tag: "latest"
+  ingress:
+    rsMtls:
+      host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    rsSapig:
+      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+    rsIGSstudio:
+      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+  secrets:
+    igAgentID: "aWctYWdlbnQ="
+    igAgentPassword: "cGFzc3dvcmQ="
+    igClientID: "aWctY2xpZW50"
+    igClientSecret: "cGFzc3dvcmQ="
+    igIDMPassword: "MHBlbkJhbmtpbmch"
+    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    igMetricsPassword: "cGFzc3dvcmQ="
+    igMetricsUsername: "dXNlcg=="
+    igTruststorePassword: "Y2hhbmdlaXQ="
 
 fidcConfigurator:
-  enabled: true
-  branch: HEAD
-  repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer
-  tag: latest
+  enabled: "true"
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
+  # SH - REVERT TO latest
+  tag: "shauntesting"
 
 devenvs:
   fapiPepAS:
-    tag: latest
-    branch: master
+    tag: "latest"
+    branch: "master"
     truststore:
       # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
-      googleSecretName: am-oauth2-ca-certs
+      googleSecretName: "am-oauth2-ca-certs"
     ob:
       signingkey:
-        googleSecretName: ig-ob-signing-key
+        googleSecretName: "ig-ob-signing-key"
   fapiPepRS:
-    tag: latest
-    branch: master
+    tag: "latest"
+    branch: "master"
     truststore:
       # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
-      googleSecretName: am-oauth2-ca-certs
+      googleSecretName: "am-oauth2-ca-certs"
     ob:
       signingkey:
-        googleSecretName: ig-ob-signing-key
-  testTrustedDirectory:
-    tag: latest
-    branch: master
-
-ingress:
-  domain: localhost
+        googleSecretName: "ig-ob-signing-key"
 
 spec:
-  project: default
+  project: "default"
   destination:
-    server: https://kubernetes.default.svc
-    namespace: dev
+    server: "https://kubernetes.default.svc"
+    namespace: "dev"
   source:
-    targetRevision: HEAD
-  syncPolicy: 
+    # SH - REVERT TO HEAD
+    targetRevision: "1679-use-helm-to-install"
+  syncPolicy:
     automated:
       prune: true
       selfHeal: true
 
 testUserAccountCreator:
-  branch: HEAD
+  branch: "HEAD"
   deployment:
-    type: Job
-  repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer
-  tag: latest
+    type: "Job"
+  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
+  tag: "latest"
+
+testTrustedDirectory:
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  configmap:
+    igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
+    tag: "latest"
+  ingress:
+    host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    tls:
+      host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+  secrets:
+    igMetricsPassword: "dXNlcg=="
+    igMetricsUsername: "cGFzc3dvcmQ="
+    igTestDirectoryCAKeystoreKeypass: "UGFzc3cwcmQ="
+    igTestDirectoryCAKeystoreStorepass: "UGFzc3cwcmQ="
+    igTestDirectorySigningKeystoreKeypass: "UGFzc3cwcmQ="
+    igTestDirectorySigningKeystoreStorepass: "UGFzc3cwcmQ="

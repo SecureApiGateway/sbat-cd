@@ -3,20 +3,17 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: {{ .Values.externalCert.ttd.secretName }}
+  name: {{ .Values.externalCert.ob.mtlsCASecretName }}
 spec:
   refreshInterval: 1h             
   secretStoreRef:
     kind: SecretStore
     name: gcp-store               
   target:
-    name: {{ .Values.externalCert.ttd.secretName }}
+    name: {{ .Values.externalCert.ob.mtlsCASecretName }}
     creationPolicy: Owner
   data:
-  - secretKey: tls.crt
+  - secretKey: ca.crt
     remoteRef:
-      key: {{ .Values.externalCert.ttd.certPrefix }}-crt
-  - secretKey: tls.key
-    remoteRef:
-      key: {{ .Values.externalCert.ttd.certPrefix }}-key
+      key: {{ .Values.externalCert.ob.mtlsCAGoogleSecretName }}
 {{ end }}

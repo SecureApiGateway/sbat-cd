@@ -12,11 +12,36 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
-    path: core/kustomize/overlay/{{ .Values.environment.kustomizeFolder }}/testtrusteddir
-    repoURL: https://github.com/SecureApiGateway/sapig-openbanking-uk-developer-envs
-    targetRevision: {{ .Values.devenvs.testTrustedDirectory.branch }}
-    kustomize:
-      images:
-        - europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory:{{ .Values.devenvs.testTrustedDirectory.tag }}
+    helm:
+      parameters:
+        # ConfigMap
+        - name: configmap.igTestDirectoryFQDN
+          value: {{ .Values.testTrustedDirectory.configmap.igTestDirectoryFQDN }}
+        # Deployment
+        - name: deployment.image.repo
+          value: {{ .Values.testTrustedDirectory.deployment.repo}}
+        - name: deployment.image.tag
+          value: {{ .Values.testTrustedDirectory.deployment.tag }}
+        # Ingress
+        - name: ingress.host
+          value: {{ .Values.testTrustedDirectory.ingress.host }}
+        - name: ingress.tls.host
+          value: {{ .Values.testTrustedDirectory.ingress.tls.host }}
+        # Secrets
+        - name: secrets.igMetricsPassword
+          value: {{ .Values.testTrustedDirectory.secrets.igMetricsPassword }}
+        - name: secrets.igMetricsUsername
+          value: {{ .Values.testTrustedDirectory.secrets.igMetricsUsername }}
+        - name: secrets.igTestDirectoryCAKeystoreKeypass
+          value: {{ .Values.testTrustedDirectory.secrets.igTestDirectoryCAKeystoreKeypass }}
+        - name: secrets.igTestDirectoryCAKeystoreStorepass
+          value: {{ .Values.testTrustedDirectory.secrets.igTestDirectoryCAKeystoreStorepass }}
+        - name: secrets.igTestDirectorySigningKeystoreKeypass
+          value: {{ .Values.testTrustedDirectory.secrets.igTestDirectorySigningKeystoreKeypass }}
+        - name: secrets.igTestDirectorySigningKeystoreStorepass
+          value: {{ .Values.testTrustedDirectory.secrets.igTestDirectorySigningKeystoreStorepass }}
+    path: _infra/helm/secure-api-gateway-test-trusted-directory
+    repoURL: https://github.com/SecureApiGateway/secure-api-gateway-test-trusted-directory
+    targetRevision: {{ .Values.testTrustedDirectory.branch }}
   syncPolicy:
     {{- toYaml .Values.spec.syncPolicy | nindent 4 }}

@@ -12,11 +12,70 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
-    path: core/kustomize/overlay/{{ .Values.environment.kustomizeFolder }}/fapi-pep-as
-    repoURL: https://github.com/SecureApiGateway/sapig-openbanking-uk-developer-envs
-    targetRevision: {{ .Values.devenvs.fapiPepAS.branch }}
-    kustomize:
-      images:
-        - europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as:{{ .Values.devenvs.fapiPepAS.tag }}
+    helm:
+      parameters:
+        # ConfigMap
+        - name: configmap.amRealm
+          value: {{ .Values.fapiPepAs.configmap.amRealm }}
+        - name: configmap.baseFQDN
+          value: {{ .Values.fapiPepAs.configmap.baseFQDN }}
+        - name: configmap.cloudType
+          value: {{ .Values.fapiPepAs.configmap.cloudType }}
+        - name: configmap.identityPlatformFQDN
+          value: {{ .Values.fapiPepAs.configmap.identityPlatformFQDN }}
+        - name: configmap.asFQDN
+          value: {{ .Values.fapiPepAs.configmap.asFQDN }}
+        - name: configmap.asMtlsFQDN
+          value: {{ .Values.fapiPepAs.configmap.asMtlsFQDN }}
+        - name: configmap.sapigType
+          value: {{ .Values.fapiPepAs.configmap.sapigType }}
+        - name: configmap.testDirectoryFQDN
+          value: {{ .Values.fapiPepAs.configmap.testDirectoryFQDN }}
+        - name: configmap.AIC.identityDefaultUserAuthenticationService
+          value: {{ .Values.fapiPepAs.configmap.identityDefaultUserAuthenticationService }}
+        - name: configmap.AIC.identityGoogleSecretStoreName
+          value: {{ .Values.fapiPepAs.configmap.identityGoogleSecretStoreName }}
+        - name: configmap.AIC.identityGoogleSecretStoreOAuth2CACertsSecretName
+          value: {{ .Values.fapiPepAs.configmap.identityGoogleSecretStoreOAuth2CACertsSecretName }}
+        # Deployment
+        - name: deployment.image.repo
+          value: {{ .Values.fapiPepAs.deployment.repo}}
+        - name: deployment.image.tag
+          value: {{ .Values.fapiPepAs.deployment.tag }}
+        # Ingress
+        - name: ingress.asSapig.host
+          value: {{ .Values.fapiPepAs.ingress.asSapig.host }}
+        - name: ingress.asSapig.tls.host
+          value: {{ .Values.fapiPepAs.ingress.asSapig.tls.host }}
+        - name: ingress.asMtls.host
+          value: {{ .Values.fapiPepAs.ingress.asMtls.host }}
+        - name: ingress.asMtls.tls.host
+          value: {{ .Values.fapiPepAs.ingress.asMtls.tls.host }}
+        - name: ingress.asIGSstudio.host
+          value: {{ .Values.fapiPepAs.ingress.asIGSstudio.host }}
+        - name: ingress.asIGSstudio.tls.host
+          value: {{ .Values.fapiPepAs.ingress.asIGSstudio.tls.host }}
+        # Secrets
+        - name: secrets.igAgentID
+          value: {{ .Values.fapiPepAs.secrets.igAgentID }}
+        - name: secrets.igAgentPassword
+          value: {{ .Values.fapiPepAs.secrets.igAgentPassword }}
+        - name: secrets.igClientID
+          value: {{ .Values.fapiPepAs.secrets.igClientID }}
+        - name: secrets.igClientSecret
+          value: {{ .Values.fapiPepAs.secrets.igClientSecret }}
+        - name: secrets.igIDMPassword
+          value: {{ .Values.fapiPepAs.secrets.igIDMPassword }}
+        - name: secrets.igIDMUser
+          value: {{ .Values.fapiPepAs.secrets.igIDMUser }}
+        - name: secrets.igMetricsPassword
+          value: {{ .Values.fapiPepAs.secrets.igMetricsPassword }}
+        - name: secrets.igMetricsUsername
+          value: {{ .Values.fapiPepAs.secrets.igMetricsUsername }}
+        - name: secrets.igTruststorePassword
+          value: {{ .Values.fapiPepAs.secrets.igTruststorePassword }}
+    path: _infra/helm/secure-api-gateway-fapi-pep-as
+    repoURL: https://github.com/SecureApiGateway/secure-api-gateway-fapi-pep-as
+    targetRevision: {{ .Values.fapiPepAs.branch }}
   syncPolicy:
     {{- toYaml .Values.spec.syncPolicy | nindent 4 }}

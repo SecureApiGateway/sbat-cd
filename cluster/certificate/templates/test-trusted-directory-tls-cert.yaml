@@ -1,5 +1,4 @@
 ---
-{{- if eq .Values.environment.sapigType "core" }}
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -19,4 +18,3 @@ spec:
   - secretKey: tls.key
     remoteRef:
       key: {{ .Values.externalCert.testTrustedDirectory.tlsCertPrefix }}-key
-{{ end }}

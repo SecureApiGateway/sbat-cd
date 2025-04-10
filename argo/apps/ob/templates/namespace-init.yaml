@@ -14,26 +14,26 @@ spec:
   source:
     helm:
       parameters:
-        - name: externalCert.projectId
-          value: {{ .Values.externalCert.projectId }}
-        - name: externalCert.mtls.certPrefix
-          value: {{ .Values.externalCert.mtls.certPrefix }}
-        - name: externalCert.sapig.certPrefix
-          value: {{ .Values.externalCert.sapig.certPrefix }}
-        - name: externalCert.ttd.certPrefix
-          value: {{ .Values.externalCert.ttd.certPrefix }}
+        - name: cloud.key
+          value: {{ .Values.cloud.key }}
+        - name: cloud.id
+          value: {{ .Values.cloud.id }}
+        - name: environment.cloudType
+          value: {{ .Values.environment.cloudType }}
+        - name: environment.projectId
+          value: {{ .Values.environment.projectId }}
+        - name: environment.sapigType
+          value: {{ .Values.environment.sapigType }}
+        - name: externalCert.ob.mtlsCertPrefix
+          value: {{ .Values.externalCert.ob.mtlsCertPrefix }}
+        - name: externalCert.ob.tlsCertPrefix
+          value: {{ .Values.externalCert.ob.tlsCertPrefix }}
+        - name: externalCert.testTrustedDirectory.tlsCertPrefix
+          value: {{ .Values.externalCert.testTrustedDirectory.tlsCertPrefix }}
         - name: ig.truststore.googleSecretName
           value: {{ .Values.devenvs.ig.truststore.googleSecretName }}
         - name: ig.ob.signingkey.googleSecretName
           value: {{ .Values.devenvs.ig.ob.signingkey.googleSecretName }}
-        - name: environment.sapigType
-          value: {{ .Values.environment.sapigType }}
-        - name: environment.cloudType
-          value: {{ .Values.environment.cloudType }}
-        - name: cloud.id
-          value: {{ .Values.cloud.id }}
-        - name: cloud.key
-          value: {{ .Values.cloud.key }}
     path: cluster/certificate
     repoURL: https://github.com/SecureBankingAccessToolkit/sbat-cd
     targetRevision: {{ .Values.spec.source.targetRevision }}

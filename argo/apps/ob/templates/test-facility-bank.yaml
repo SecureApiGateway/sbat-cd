@@ -14,8 +14,6 @@ spec:
   source:
     helm:
       parameters:
-      - name: ingress.domain
-        value: {{ .Values.ingress.domain }}
       - name: deployment.mongodb.host
         value: "mongodb-{{ .Release.Name }}"
       - name: deployment.image.repo

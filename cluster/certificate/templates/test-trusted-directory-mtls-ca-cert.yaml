@@ -1,0 +1,17 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: {{ .Values.externalCert.testTrustedDirectory.mtlsCASecretName }}
+spec:
+  refreshInterval: 1h             
+  secretStoreRef:
+    kind: SecretStore
+    name: gcp-store               
+  target:
+    name: {{ .Values.externalCert.testTrustedDirectory.mtlsCASecretName }}
+    creationPolicy: Owner
+  data:
+  - secretKey: ca.crt
+    remoteRef:
+      key: {{ .Values.externalCert.testTrustedDirectory.mtlsCAGoogleSecretName }}

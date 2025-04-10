@@ -1,36 +1,36 @@
 ---
 cloud:
-  id: dev-aic-ob-private-id
-  key: dev-aic-ob-private-key
-
-cors:
-  originEnds: localhost
+  id: "dev-aic-ob-private-id"
+  key: "dev-aic-ob-private-key"
 
 environment:
   # CDK value: (Cloud Developer's Kit) development identity platform
   # CDM value: CDM (Cloud Deployment Model) identity cloud platform
   # FIDC value: Cloud Deployment Model) identity cloud platform
-  cloudType: CDK
-  sapigType: ob
-  kustomizeFolder: dev
+  cloudType: "CDK"
+  projectId: "example-project"
+  sapigType: "ob"
 
 externalCert:
-  projectId: example-project
-  mtls:
-    certPrefix: dev
-    secretName: mtls-tls-cert
-  sapig:
-    certPrefix: dev
-    secretName: sapig-tls-cert
-  ttd:
-    certPrefix: dev
-    secretName: ttd-tls-cert
+  ob:
+    mtlsCertPrefix: "dev"
+    mtlsSecretName: "mtls-tls-cert"
+    tlsCertPrefix: "dev"
+    tlsSecretName: "sapig-tls-cert"
+  testTrustedDirectory:
+    mtlscaSecretName: "test-trusted-directory-mtls-ca-certs"
+    mtlscaGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
+    tlsSecretName: "test-trusted-directory-tls-cert"
+    tlsCertPrefix: "dev"
 
 fidcConfigurator:
-  enabled: true
-  branch: HEAD
-  repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer
-  tag: latest
+  enabled: "true"
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
+  # SH - REVERT TO latest
+  tag: "shauntesting"
+
 devenvs:
   ig:
     tag: latest
@@ -41,46 +41,107 @@ devenvs:
     ob:
       signingkey:
         googleSecretName: ig-ob-signing-key
-  testTrustedDirectory:
-    tag: latest
-    branch: master
 
-ingress:
-  domain: localhost
-
+ob:
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  configmap:
+    amRealm: "alpha"
+    baseFQDN: "dev-cdk-core.forgerock.financial"
+    cloudType: "CDK"
+    identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
+    igFQDN: "sapig.dev-cdk-ob.forgerock.financial"
+    mtlsFQDN: "mtls.sapig.dev-cdk-ob.forgerock.financial"
+    sapigType: "ob"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
+    identityDefaultUserAuthenticationService: "PasswordGrant"
+    identityGoogleSecretStoreName: "ESV"
+    identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-ob-am-oauth2-ca-certs"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ig"
+    # SH - REVERT TO latest
+    tag: "pr-587"
+  ingress:
+    sapig:
+      host: "sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "sapig.dev-cdk-ob.forgerock.financial"
+    mtls:
+      host: "mtls.sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "mtls.sapig.dev-cdk-ob.forgerock.financial"
+    igWeb:
+      host: "sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "sapig.dev-cdk-ob.forgerock.financial"
+  secrets:
+    igAgentID: "aWctYWdlbnQ="
+    igAgentPassword: "cGFzc3dvcmQ="
+    igClientID: "aWctY2xpZW50"
+    igClientSecret: "cGFzc3dvcmQ="
+    igIDMPassword: "MHBlbkJhbmtpbmch"
+    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    igMetricsPassword: "cGFzc3dvcmQ="
+    igMetricsUsername: "dXNlcg=="
+    igOBASPSPSigningKeystoreKeypass: "cGFzc3dvcmQ="
+    igOBASPSPSigningKeystoreStorepass: "cGFzc3dvcmQ="
+    igTruststorePassword: "Y2hhbmdlaXQ="
+    mongodbConsentPassword: "TDNoNXd4czRkRnZW"
+    mongodbConsentUsername: "Y29uc2VudA=="
+    mongodbTestFacilityPassword: "UlZkYjdZdlg5NjdR"
+    mongodbTestFacilityUsername:  "dGVzdC1mYWNpbGl0eS1iYW5r"
 remoteConsentServer:
-  branch: HEAD
-  repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rcs
-  tag: latest
+  branch: "HEAD"
+  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rcs"
+  tag: "latest"
 
 remoteConsentServiceUserInterface:
-  branch: HEAD
-  repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs
-  tag: latest
+  branch: "HEAD"
+  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs"
+  tag: "latest"
 
 spec:
-  project: default
+  project: "default"
   destination:
-    server: https://kubernetes.default.svc
-    namespace: dev
+    server: "https://kubernetes.default.svc"
+    namespace: "dev"
   source:
-    targetRevision: HEAD
+    # SH - REVERT TO HEAD
+    targetRevision: "1679-use-helm-to-install"
   syncPolicy: 
     automated:
       prune: true
       selfHeal: true
 
 testFacilityBank:
-  branch: HEAD
-  repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rs
-  tag: latest
+  branch: "HEAD"
+  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rs"
+  tag: "latest"
 
 testTrustedDirectory:
-  tag: latest
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  configmap:
+    igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
+    # SH - REVERT TO latest
+    tag: "pr-38"
+  ingress:
+    host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    tls:
+      host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+  secrets:
+    igMetricsPassword: "dXNlcg=="
+    igMetricsUsername: "cGFzc3dvcmQ="
+    igTestDirectoryCAKeystoreKeypass: "UGFzc3cwcmQ="
+    igTestDirectoryCAKeystoreStorepass: "UGFzc3cwcmQ="
+    igTestDirectorySigningKeystoreKeypass: "UGFzc3cwcmQ="
+    igTestDirectorySigningKeystoreStorepass: "UGFzc3cwcmQ="
 
 testUserAccountCreator:
-  branch: HEAD
+  branch: "HEAD"
   deployment:
-    type: CronJob
-  repo: europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer
-  tag: latest
+    type: "CronJob"
+  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
+  tag: "latest"
