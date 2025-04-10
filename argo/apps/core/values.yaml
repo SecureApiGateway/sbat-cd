@@ -71,8 +71,8 @@ spec:
     targetRevision: "1679-use-helm-to-install"
   syncPolicy:
     automated:
-      prune: "true"
-      selfHeal: "true"
+      prune: true
+      selfHeal: true
 
 testUserAccountCreator:
   branch: "HEAD"
