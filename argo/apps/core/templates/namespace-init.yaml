@@ -40,7 +40,6 @@ spec:
           value: {{ .Values.devenvs.fapiPepAS.ob.signingkey.googleSecretName }}
     path: cluster/certificate
     repoURL: https://github.com/SecureBankingAccessToolkit/sbat-cd
-    # SH-ToDo - Revert
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated:

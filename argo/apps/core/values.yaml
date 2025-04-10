@@ -29,8 +29,7 @@ externalCert:
     tlsSecretName: "test-trusted-directory-tls-cert"
 
 fapiPepAs:
-  # SH - REVERT TO HEAD
-  branch: "1679-use-helm-to-install"
+  branch: "HEAD"
   configmap:
     amRealm: "alpha"
     asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
@@ -45,8 +44,7 @@ fapiPepAs:
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
   deployment:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
-    # SH - REVERT TO LATEST
-    tag: "pr-121"
+    tag: "latest"
   ingress:
     asMtls:
       host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
@@ -72,8 +70,7 @@ fapiPepAs:
     igTruststorePassword: "Y2hhbmdlaXQ="
 
 fapiPepRs:
-  # SH - REVERT TO HEAD
-  branch: "1679-use-helm-to-install"
+  branch: "HEAD"
   configmap:
     amRealm: "alpha"
     asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
@@ -116,11 +113,9 @@ fapiPepRs:
 
 fidcConfigurator:
   enabled: "true"
-  # SH - REVERT TO HEAD
-  branch: "1679-use-helm-to-install"
+  branch: "HEAD"
   repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-  # SH - REVERT TO latest
-  tag: "shauntesting"
+  tag: "latest"
 
 devenvs:
   fapiPepAS:
@@ -148,8 +143,7 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: "dev"
   source:
-    # SH - REVERT TO HEAD
-    targetRevision: "1679-use-helm-to-install"
+    targetRevision: "HEAD"
   syncPolicy:
     automated:
       prune: true
@@ -163,8 +157,7 @@ testUserAccountCreator:
   tag: "latest"
 
 testTrustedDirectory:
-  # SH - REVERT TO HEAD
-  branch: "1679-use-helm-to-install"
+  branch: "HEAD"
   configmap:
     igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
   deployment:

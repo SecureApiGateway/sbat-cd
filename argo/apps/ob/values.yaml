@@ -25,11 +25,9 @@ externalCert:
 
 fidcConfigurator:
   enabled: "true"
-  # SH - REVERT TO HEAD
-  branch: "1679-use-helm-to-install"
+  branch: "HEAD"
   repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-  # SH - REVERT TO latest
-  tag: "shauntesting"
+  tag: "latest"
 
 devenvs:
   ig:
@@ -43,8 +41,7 @@ devenvs:
         googleSecretName: ig-ob-signing-key
 
 ob:
-  # SH - REVERT TO HEAD
-  branch: "1679-use-helm-to-install"
+  branch: "HEAD"
   configmap:
     amRealm: "alpha"
     baseFQDN: "dev-cdk-core.forgerock.financial"
@@ -59,8 +56,7 @@ ob:
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-ob-am-oauth2-ca-certs"
   deployment:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ig"
-    # SH - REVERT TO latest
-    tag: "pr-587"
+    tag: "latest"
   ingress:
     sapig:
       host: "sapig.dev-cdk-ob.forgerock.financial"
@@ -106,8 +102,7 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: "dev"
   source:
-    # SH - REVERT TO HEAD
-    targetRevision: "1679-use-helm-to-install"
+    targetRevision: "HEAD"
   syncPolicy: 
     automated:
       prune: true
@@ -119,14 +114,12 @@ testFacilityBank:
   tag: "latest"
 
 testTrustedDirectory:
-  # SH - REVERT TO HEAD
-  branch: "1679-use-helm-to-install"
+  branch: "HEAD"
   configmap:
     igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
   deployment:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
-    # SH - REVERT TO latest
-    tag: "pr-38"
+    tag: "latest"
   ingress:
     host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     tls:
