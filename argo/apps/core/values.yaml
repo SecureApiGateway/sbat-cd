@@ -67,8 +67,9 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: "dev"
   source:
-    targetRevision: "HEAD"
-  syncPolicy: 
+    # SH - REVERT TO HEAD
+    targetRevision: "1679-use-helm-to-install"
+  syncPolicy:
     automated:
       prune: "true"
       selfHeal: "true"
@@ -81,7 +82,8 @@ testUserAccountCreator:
   tag: "latest"
 
 testTrustedDirectory:
-  branch: "HEAD"
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
   configmap:
     igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
   deployment:
