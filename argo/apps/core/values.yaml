@@ -116,7 +116,8 @@ fapiPepRs:
 
 fidcConfigurator:
   enabled: "true"
-  branch: "HEAD"
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
   repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
   # SH - REVERT TO latest
   tag: "shauntesting"
