@@ -28,6 +28,91 @@ externalCert:
     tlsCertPrefix: "dev"
     tlsSecretName: "test-trusted-directory-tls-cert"
 
+fapiPepAs:
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  configmap:
+    amRealm: "alpha"
+    asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
+    asMtlsFQDN: "as-mtls.sapig.dev-cdk-core.forgerock.financial"
+    baseFQDN: "dev-cdk-core.forgerock.financial"
+    cloudType: "CDK"
+    identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
+    sapigType: "core"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    identityDefaultUserAuthenticationService: "PasswordGrant"
+    identityGoogleSecretStoreName: "ESV"
+    identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
+    tag: "latest"
+  ingress:
+    asMtls:
+      host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    asSapig:
+      host: "as-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "as-sapig.dev-cdk-ob.forgerock.financial"
+    asIGSstudio:
+      host: "as-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "as-sapig.dev-cdk-ob.forgerock.financial"
+  secrets:
+    igAgentID: "aWctYWdlbnQ="
+    igAgentPassword: "cGFzc3dvcmQ="
+    igClientID: "aWctY2xpZW50"
+    igClientSecret: "cGFzc3dvcmQ="
+    igIDMPassword: "MHBlbkJhbmtpbmch"
+    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    igMetricsPassword: "cGFzc3dvcmQ="
+    igMetricsUsername: "dXNlcg=="
+    igTruststorePassword: "Y2hhbmdlaXQ="
+
+fapiPepRs:
+  # SH - REVERT TO HEAD
+  branch: "1679-use-helm-to-install"
+  configmap:
+    amRealm: "alpha"
+    asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
+    baseFQDN: "dev-cdk-core.forgerock.financial"
+    cloudType: "CDK"
+    identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
+    rsFQDN: "rs-sapig.dev-cdk-core.forgerock.financial"
+    rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
+    sapigType: "core"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    identityDefaultUserAuthenticationService: "PasswordGrant"
+    identityGoogleSecretStoreName: "ESV"
+    identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-core"
+    tag: "latest"
+  ingress:
+    rsMtls:
+      host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    rsSapig:
+      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+    rsIGSstudio:
+      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+  secrets:
+    igAgentID: "aWctYWdlbnQ="
+    igAgentPassword: "cGFzc3dvcmQ="
+    igClientID: "aWctY2xpZW50"
+    igClientSecret: "cGFzc3dvcmQ="
+    igIDMPassword: "MHBlbkJhbmtpbmch"
+    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    igMetricsPassword: "cGFzc3dvcmQ="
+    igMetricsUsername: "dXNlcg=="
+    igTruststorePassword: "Y2hhbmdlaXQ="
+
 fidcConfigurator:
   enabled: "true"
   branch: "HEAD"

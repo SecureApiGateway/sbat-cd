@@ -39,9 +39,9 @@ spec:
           value: {{ .Values.ob.configmap.identityGoogleSecretStoreOAuth2CACertsSecretName }}
         # Deployment
         - name: deployment.image.repo
-          value: {{ .Values.testTrustedDirectory.deployment.repo}}
+          value: {{ .Values.ob.deployment.repo}}
         - name: deployment.image.tag
-          value: {{ .Values.testTrustedDirectory.deployment.tag }}
+          value: {{ .Values.ob.deployment.tag }}
         # Ingress
         - name: ingress.sapig.host
           value: {{ .Values.ob.ingress.sapig.host }}

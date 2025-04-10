@@ -45,7 +45,7 @@ ob:
   branch: "1679-use-helm-to-install"
   configmap:
     amRealm: "alpha"
-    baseFQDN: "dev.forgerock.financial"
+    baseFQDN: "dev-cdk-core.forgerock.financial"
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
     igFQDN: "sapig.dev-cdk-ob.forgerock.financial"
