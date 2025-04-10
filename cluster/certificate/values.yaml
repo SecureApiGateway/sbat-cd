@@ -10,46 +10,42 @@ serviceAccount: default
 
 externalCert:
   projectId: example-project
-  # To Be Removed once OB using fapi-pep >
-  mtls:
-    secretName: mtls-tls-cert
-    certPrefix: dev-ob-wac
-  sapig:
-    secretName: sapig-tls-cert
-    certPrefix: dev
-  ttd:
-    secretName: ttd-tls-cert
-    certPrefix: dev
-  # < end of delete
+  ob:
+    mtlsCAGoogleSecretName: ob-mtls-ca-certs
+    mtlsCASecretName: ob-mtls-ca-certs
+    mtlsCertPrefix: dev-ob-wac
+    mtlsSecretName: ob-mtls-tls-cert
+    tlsCertPrefix: dev
+    tlsSecretName: ob-tls-cert
   fapiPepAS:
-    mtlsSecretName: fapi-pep-as-mtls-tls-cert
     mtlsCertPrefix: dev-as-mtls
+    mtlsSecretName: fapi-pep-as-mtls-tls-cert
+    tlsCertPrefix: dev
     tlsSecretName: fapi-pep-as-tls-cert
-    tlsCertPrefix: dev
   fapiPepRS:
-    mtlsSecretName: fapi-pep-rs-mtls-tls-cert
     mtlsCertPrefix: dev-rs-mtls
+    mtlsSecretName: fapi-pep-rs-mtls-tls-cert
+    tlsCertPrefix: dev
     tlsSecretName: fapi-pep-rs-tls-cert
-    tlsCertPrefix: dev
   testTrustedDirectory:
-    mtlsCASecretName: test-trusted-directory-mtls-ca-certs
     mtlsCAGoogleSecretName: test-trusted-directory-mtls-ca-certs
-    tlsSecretName: test-trusted-directory-tls-cert
+    mtlsCASecretName: test-trusted-directory-mtls-ca-certs
     tlsCertPrefix: dev
+    tlsSecretName: test-trusted-directory-tls-cert
 ig:
   truststore:
-    secretName: ig-truststore-pem
     fileName: ig-truststore.pem
     googleSecretName: ig-truststore-pem
+    secretName: ig-truststore-pem
   ob:
     signingKey:
-      secretName: ig-ob-signing-key
       fileName: ig-ob-signing-key.p12
       googleSecretName: ig-ob-signing-key
+      secretName: ig-ob-signing-key
   testTrustedDirectory:
-    secretName: test-trusted-directory-keystore
     fileName: test-trusted-directory-keystore.p12
     googleSecretName: test-trusted-directory-keystore
+    secretName: test-trusted-directory-keystore
 rcs:
   signing:
     certPrefix: rcs-signing

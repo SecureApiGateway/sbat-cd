@@ -16,7 +16,7 @@ environment:
 
 externalCert:
   projectId: "example-project"
-  ig:
+  ob:
     mtlsCertPrefix: "dev"
     mtlsSecretName: "mtls-tls-cert"
     tlsCertPrefix: "dev"
@@ -47,6 +47,51 @@ devenvs:
 ingress:
   domain: "localhost"
 
+ob:
+  configmap:
+    amRealm: "alpha"
+    baseFQDN: "dev.forgerock.financial"
+    cloudType: "CDK"
+    identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
+    igFQDN: "sapig.dev-cdk-ob.forgerock.financial"
+    mtlsFQDN: "mtls.sapig.dev-cdk-ob.forgerock.financial"
+    sapigType: "ob"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
+    identityDefaultUserAuthenticationService: "PasswordGrant"
+    identityGoogleSecretStoreName: "ESV"
+    identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-ob-am-oauth2-ca-certs"
+  deployment:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ig"
+    tag: "latest"
+  ingress:
+    sapig:
+      host: "sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "sapig.dev-cdk-ob.forgerock.financial"
+    mtls:
+      host: "mtls.sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "mtls.sapig.dev-cdk-ob.forgerock.financial"
+    igWeb:
+      host: "sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "sapig.dev-cdk-ob.forgerock.financial"
+  secrets:
+    igAgentID: "aWctYWdlbnQ="
+    igAgentPassword: "cGFzc3dvcmQ="
+    igClientID: "aWctY2xpZW50"
+    igClientSecret: "cGFzc3dvcmQ="
+    igIDMPassword: "MHBlbkJhbmtpbmch"
+    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    igMetricsPassword: "cGFzc3dvcmQ="
+    igMetricsUsername: "dXNlcg=="
+    igOBASPSPSigningKeystoreKeypass: "cGFzc3dvcmQ="
+    igOBASPSPSigningKeystoreStorepass: "cGFzc3dvcmQ="
+    igTruststorePassword: "Y2hhbmdlaXQ="
+    mongodbConsentPassword: "TDNoNXd4czRkRnZW"
+    mongodbConsentUsername: "Y29uc2VudA=="
+    mongodbTestFacilityPassword: "UlZkYjdZdlg5NjdR"
+    mongodbTestFacilityUsername:  "dGVzdC1mYWNpbGl0eS1iYW5r"
 remoteConsentServer:
   branch: "HEAD"
   repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rcs"
