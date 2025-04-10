@@ -51,7 +51,7 @@ spec:
           value: {{ .Values.ob.ingress.mtls.host }}
         - name: ingress.mtls.tls.host
           value: {{ .Values.ob.ingress.mtls.tls.host }}
-        - name: ingress.igWeb..host
+        - name: ingress.igWeb.tls.host
           value: {{ .Values.ob.ingress.igWeb.host }}
         - name: ingress.igWeb.tls.host
           value: {{ .Values.ob.ingress.igWeb.tls.host }}
