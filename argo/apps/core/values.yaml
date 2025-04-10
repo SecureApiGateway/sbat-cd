@@ -22,11 +22,17 @@ externalCert:
     mtlsSecretName: "fapi-pep-rs-mtls-tls-cert"
     tlsCertPrefix: "dev"
     tlsSecretName: "fapi-pep-rs-tls-cert"
+  ob:
+    signingkey:
+      googleSecretName: "ig-ob-signing-key"
   testTrustedDirectory:
     mtlsCAGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
     mtlsCASecretName: "test-trusted-directory-mtls-ca-certs"
     tlsCertPrefix: "dev"
     tlsSecretName: "test-trusted-directory-tls-cert"
+  truststore:
+    # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
+    googleSecretName: "am-oauth2-ca-certs"
 
 fapiPepAs:
   branch: "HEAD"
@@ -71,6 +77,12 @@ fapiPepAs:
 
 fapiPepRs:
   branch: "HEAD"
+  truststore:
+    # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
+    googleSecretName: "am-oauth2-ca-certs"
+  ob:
+    signingkey:
+      googleSecretName: "ig-ob-signing-key"
   configmap:
     amRealm: "alpha"
     asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
@@ -116,26 +128,6 @@ fidcConfigurator:
   branch: "HEAD"
   repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
   tag: "latest"
-
-devenvs:
-  fapiPepAS:
-    tag: "latest"
-    branch: "master"
-    truststore:
-      # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
-      googleSecretName: "am-oauth2-ca-certs"
-    ob:
-      signingkey:
-        googleSecretName: "ig-ob-signing-key"
-  fapiPepRS:
-    tag: "latest"
-    branch: "master"
-    truststore:
-      # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
-      googleSecretName: "am-oauth2-ca-certs"
-    ob:
-      signingkey:
-        googleSecretName: "ig-ob-signing-key"
 
 spec:
   project: "default"
