@@ -18,11 +18,11 @@ spec:
           value: {{ .Values.cloud.key }}
         - name: cloud.id
           value: {{ .Values.cloud.id }}
-        - name: environment.cloudType
+        - name: ob.environment.cloudType
           value: {{ .Values.environment.cloudType }}
-        - name: environment.projectId
+        - name: ob.environment.projectId
           value: {{ .Values.environment.projectId }}
-        - name: environment.sapigType
+        - name: ob.environment.sapigType
           value: {{ .Values.environment.sapigType }}
         - name: externalCert.fapiPepAS.mtlsCertPrefix
           value: {{ .Values.externalCert.fapiPepAS.mtlsCertPrefix }}
