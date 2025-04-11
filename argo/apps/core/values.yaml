@@ -130,8 +130,9 @@ fapiPepRs:
 fidcConfigurator:
   enabled: "true"
   branch: "HEAD"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
+    tag: "latest"
 
 spec:
   project: "default"
@@ -149,8 +150,9 @@ testUserAccountCreator:
   branch: "HEAD"
   deployment:
     type: "Job"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
+    tag: "latest"
 
 testTrustedDirectory:
   branch: "HEAD"
