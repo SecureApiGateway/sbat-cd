@@ -17,9 +17,9 @@ spec:
       - name: deployment.mongodb.host
         value: "mongodb-{{ .Release.Name }}"
       - name: deployment.image.repo
-        value: {{ .Values.testFacilityBank.repo }}
+        value: {{ .Values.testFacilityBank.image.repo }}
       - name: deployment.image.tag
-        value: {{ .Values.testFacilityBank.tag }}
+        value: {{ .Values.testFacilityBank.image.tag }}
       values: |
         configmap:
           springConfig:

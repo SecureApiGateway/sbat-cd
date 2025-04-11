@@ -21,9 +21,9 @@ spec:
       - name: cronjob.environment.cloudType
         value: {{ .Values.environment.cloudType }}
       - name: cronjob.image.repo
-        value: {{ .Values.testUserAccountCreator.repo}}
+        value: {{ .Values.testUserAccountCreator.image.repo}}
       - name: cronjob.image.tag
-        value: {{ .Values.testUserAccountCreator.tag }}
+        value: {{ .Values.testUserAccountCreator.image.tag }}
       - name: deployment.type
         value: {{ .Values.testUserAccountCreator.deployment.type }}
       - name: cronjob.environment.sapigType

@@ -26,22 +26,18 @@ externalCert:
 fidcConfigurator:
   enabled: "true"
   branch: "HEAD"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-  tag: "latest"
-
-devenvs:
-  ig:
-    tag: latest
-    branch: master
-    truststore:
-      # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
-      googleSecretName: am-oauth2-ca-certs
-    ob:
-      signingkey:
-        googleSecretName: ig-ob-signing-key
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
+    tag: "latest"
 
 ob:
   branch: "HEAD"
+  truststore:
+    # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
+    googleSecretName: am-oauth2-ca-certs
+  ob:
+    signingkey:
+      googleSecretName: ig-ob-signing-key
   configmap:
     amRealm: "alpha"
     baseFQDN: "dev-cdk-core.forgerock.financial"
@@ -90,13 +86,15 @@ ob:
     mongodbTestFacilityUsername:  "dGVzdC1mYWNpbGl0eS1iYW5r"
 remoteConsentServer:
   branch: "HEAD"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rcs"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rcs"
+    tag: "latest"
 
 remoteConsentServiceUserInterface:
   branch: "HEAD"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs"
+    tag: "latest"
 
 spec:
   project: "default"
@@ -112,8 +110,9 @@ spec:
 
 testFacilityBank:
   branch: "HEAD"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rs"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rs"
+    tag: "latest"
 
 testTrustedDirectory:
   branch: "HEAD"
@@ -139,5 +138,6 @@ testUserAccountCreator:
   branch: "HEAD"
   deployment:
     type: "CronJob"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
+    tag: "latest"
