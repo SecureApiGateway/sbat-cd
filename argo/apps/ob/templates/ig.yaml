@@ -31,6 +31,8 @@ spec:
           value: {{ .Values.ob.configmap.sapigType }}
         - name: configmap.testDirectoryFQDN
           value: {{ .Values.ob.configmap.testDirectoryFQDN }}
+        - name: configmap.userObject
+          value: {{ .Values.ob.configmap.userObject }}
         - name: configmap.AIC.identityDefaultUserAuthenticationService
           value: {{ .Values.ob.configmap.identityDefaultUserAuthenticationService }}
         - name: configmap.AIC.identityGoogleSecretStoreName
