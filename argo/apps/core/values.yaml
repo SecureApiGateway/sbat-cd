@@ -48,6 +48,7 @@ fapiPepAs:
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
+    userObject: "user"
   deployment:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
     tag: "latest"
@@ -93,6 +94,7 @@ fapiPepRs:
     rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
     sapigType: "core"
     testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    userObject: "user"
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"

@@ -33,6 +33,8 @@ spec:
           value: {{ .Values.fapiPepRs.configmap.sapigType }}
         - name: configmap.testDirectoryFQDN
           value: {{ .Values.fapiPepRs.configmap.testDirectoryFQDN }}
+        - name: configmap.userObject
+          value: {{ .Values.fapiPepRs.configmap.userObject }}
         - name: configmap.AIC.identityDefaultUserAuthenticationService
           value: {{ .Values.fapiPepRs.configmap.identityDefaultUserAuthenticationService }}
         - name: configmap.AIC.identityGoogleSecretStoreName
