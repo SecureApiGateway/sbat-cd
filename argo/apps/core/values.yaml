@@ -157,8 +157,9 @@ testTrustedDirectory:
   configmap:
     igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
+      tag: "latest"
   ingress:
     host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     tls:

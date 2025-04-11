@@ -56,8 +56,9 @@ ob:
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-ob-am-oauth2-ca-certs"
     userObject: "user"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ig"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ig"
+      tag: "latest"
   ingress:
     sapig:
       host: "sapig.dev-cdk-ob.forgerock.financial"
@@ -119,8 +120,9 @@ testTrustedDirectory:
   configmap:
     igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
+      tag: "latest"
   ingress:
     host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     tls:
