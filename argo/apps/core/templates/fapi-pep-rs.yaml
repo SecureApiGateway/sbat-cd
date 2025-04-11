@@ -43,9 +43,9 @@ spec:
           value: {{ .Values.fapiPepRs.configmap.identityGoogleSecretStoreOAuth2CACertsSecretName }}
         # Deployment
         - name: deployment.image.repo
-          value: {{ .Values.fapiPepRs.deployment.repo}}
+          value: {{ .Values.fapiPepRs.deployment.image.repo}}
         - name: deployment.image.tag
-          value: {{ .Values.fapiPepRs.deployment.tag }}
+          value: {{ .Values.fapiPepRs.deployment.image.tag }}
         # Ingress
         - name: ingress.rsSapig.host
           value: {{ .Values.fapiPepRs.ingress.rsSapig.host }}

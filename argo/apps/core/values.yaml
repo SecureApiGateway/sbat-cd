@@ -50,8 +50,9 @@ fapiPepAs:
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
     userObject: "user"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
+      tag: "latest"
   ingress:
     asMtls:
       host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
@@ -99,8 +100,9 @@ fapiPepRs:
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-core"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-core"
+      tag: "latest"
   ingress:
     rsMtls:
       host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
