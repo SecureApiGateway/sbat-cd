@@ -15,30 +15,30 @@ spec:
     helm:
       parameters:
         # ConfigMap
-        - name: configmap.igTestDirectoryFQDN
+        - name: testTrustedDirectory.configmap.igTestDirectoryFQDN
           value: {{ .Values.testTrustedDirectory.configmap.igTestDirectoryFQDN }}
         # Deployment
-        - name: deployment.image.repo
+        - name: testTrustedDirectory.deployment.image.repo
           value: {{ .Values.testTrustedDirectory.deployment.repo}}
-        - name: deployment.image.tag
+        - name: testTrustedDirectory.deployment.image.tag
           value: {{ .Values.testTrustedDirectory.deployment.tag }}
         # Ingress
-        - name: ingress.host
+        - name: testTrustedDirectory.ingress.host
           value: {{ .Values.testTrustedDirectory.ingress.host }}
-        - name: ingress.tls.host
+        - name: testTrustedDirectory.ingress.tls.host
           value: {{ .Values.testTrustedDirectory.ingress.tls.host }}
         # Secrets
-        - name: secrets.igMetricsPassword
+        - name: testTrustedDirectory.secrets.igMetricsPassword
           value: {{ .Values.testTrustedDirectory.secrets.igMetricsPassword }}
-        - name: secrets.igMetricsUsername
+        - name: testTrustedDirectory.secrets.igMetricsUsername
           value: {{ .Values.testTrustedDirectory.secrets.igMetricsUsername }}
-        - name: secrets.igTestDirectoryCAKeystoreKeypass
+        - name: testTrustedDirectory.secrets.igTestDirectoryCAKeystoreKeypass
           value: {{ .Values.testTrustedDirectory.secrets.igTestDirectoryCAKeystoreKeypass }}
-        - name: secrets.igTestDirectoryCAKeystoreStorepass
+        - name: testTrustedDirectory.secrets.igTestDirectoryCAKeystoreStorepass
           value: {{ .Values.testTrustedDirectory.secrets.igTestDirectoryCAKeystoreStorepass }}
-        - name: secrets.igTestDirectorySigningKeystoreKeypass
+        - name: testTrustedDirectory.secrets.igTestDirectorySigningKeystoreKeypass
           value: {{ .Values.testTrustedDirectory.secrets.igTestDirectorySigningKeystoreKeypass }}
-        - name: secrets.igTestDirectorySigningKeystoreStorepass
+        - name: testTrustedDirectory.secrets.igTestDirectorySigningKeystoreStorepass
           value: {{ .Values.testTrustedDirectory.secrets.igTestDirectorySigningKeystoreStorepass }}
     path: _infra/helm/secure-api-gateway-test-trusted-directory
     repoURL: https://github.com/SecureApiGateway/secure-api-gateway-test-trusted-directory
