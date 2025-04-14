@@ -24,14 +24,14 @@ spec:
           value: {{ .Values.environment.projectId }}
         - name: environment.sapigType
           value: {{ .Values.environment.sapigType }}
-        - name: externalCert.fapiPepAS.mtlsCertPrefix
-          value: {{ .Values.externalCert.fapiPepAS.mtlsCertPrefix }}
-        - name: externalCert.fapiPepRS.mtlsCertPrefix
-          value: {{ .Values.externalCert.fapiPepRS.mtlsCertPrefix }}
-        - name: externalCert.fapiPepAS.tlsCertPrefix
-          value: {{ .Values.externalCert.fapiPepAS.tlsCertPrefix }}
-        - name: externalCert.fapiPepRS.tlsCertPrefix
-          value: {{ .Values.externalCert.fapiPepRS.tlsCertPrefix }}
+        - name: externalCert.fapiPepAs.mtlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepAs.mtlsCertPrefix }}
+        - name: externalCert.fapiPepRs.mtlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepRs.mtlsCertPrefix }}
+        - name: externalCert.fapiPepAs.tlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepAs.tlsCertPrefix }}
+        - name: externalCert.fapiPepRs.tlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepRs.tlsCertPrefix }}
         - name: externalCert.testTrustedDirectory.tlsCertPrefix
           value: {{ .Values.externalCert.testTrustedDirectory.tlsCertPrefix }}
         - name: ig.truststore.googleSecretName
