@@ -21,9 +21,9 @@ spec:
       - name: job.environment.cloudType
         value: {{ .Values.environment.cloudType }}
       - name: job.image.repo
-        value: {{ .Values.fidcConfigurator.repo}}
+        value: {{ .Values.fidcConfigurator.image.repo}}
       - name: job.image.tag
-        value: {{ .Values.fidcConfigurator.tag }}
+        value: {{ .Values.fidcConfigurator.image.tag }}
       - name: job.enabled
         value: {{ .Values.fidcConfigurator.enabled | quote }}
       - name: job.environment.sapigType

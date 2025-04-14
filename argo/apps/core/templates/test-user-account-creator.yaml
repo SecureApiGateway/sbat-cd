@@ -21,9 +21,9 @@ spec:
       - name: job.environment.cloudType
         value: {{ .Values.environment.cloudType }}
       - name: job.image.repo
-        value: {{ .Values.testUserAccountCreator.repo}}
+        value: {{ .Values.testUserAccountCreator.image.repo}}
       - name: job.image.tag
-        value: {{ .Values.testUserAccountCreator.tag }}
+        value: {{ .Values.testUserAccountCreator.image.tag }}
       - name: deployment.type
         value: {{ .Values.testUserAccountCreator.deployment.type }}
       - name: job.environment.sapigType

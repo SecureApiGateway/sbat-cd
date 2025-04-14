@@ -19,9 +19,9 @@ spec:
           value: {{ .Values.testTrustedDirectory.configmap.igTestDirectoryFQDN }}
         # Deployment
         - name: deployment.image.repo
-          value: {{ .Values.testTrustedDirectory.deployment.repo}}
+          value: {{ .Values.testTrustedDirectory.deployment.image.repo }}
         - name: deployment.image.tag
-          value: {{ .Values.testTrustedDirectory.deployment.tag }}
+          value: {{ .Values.testTrustedDirectory.deployment.image.tag }}
         # Ingress
         - name: ingress.host
           value: {{ .Values.testTrustedDirectory.ingress.host }}
