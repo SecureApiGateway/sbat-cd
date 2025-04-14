@@ -17,14 +17,14 @@ externalCert:
     mtlsSecretName: "ob-mtls-tls-cert"
     tlsCertPrefix: "dev"
     tlsSecretName: "ob-tls-cert"
-  fapiPepAS:
+  fapiPepAs:
     mtlsCAGoogleSecretName: "fapi-pep-as-mtls-ca-certs"
     mtlsCASecretName: "fapi-pep-as-mtls-ca-certs"
     mtlsCertPrefix: "dev-as-mtls"
     mtlsSecretName: "fapi-pep-as-mtls-tls-cert"
     tlsCertPrefix: "dev"
     tlsSecretName: "fapi-pep-as-tls-cert"
-  fapiPepRS:
+  fapiPepRs:
     mtlsCAGoogleSecretName: "fapi-pep-rs-mtls-ca-certs"
     mtlsCASecretName: "fapi-pep-rs-mtls-ca-certs"
     mtlsCertPrefix: "dev-rs-mtls"

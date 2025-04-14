@@ -12,12 +12,12 @@ environment:
   sapigType: "core"
 
 externalCert:
-  fapiPepAS:
+  fapiPepAs:
     mtlsCertPrefix: "dev-as-mtls"
     mtlsSecretName: "fapi-pep-as-mtls-tls-cert"
     tlsCertPrefix: "dev"
     tlsSecretName: "fapi-pep-as-tls-cert"
-  fapiPepRS:
+  fapiPepRs:
     mtlsCertPrefix: "dev-rs-mtls"
     mtlsSecretName: "fapi-pep-rs-mtls-tls-cert"
     tlsCertPrefix: "dev"

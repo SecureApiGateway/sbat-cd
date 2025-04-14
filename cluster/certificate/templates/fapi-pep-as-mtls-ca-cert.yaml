@@ -3,17 +3,17 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: {{ .Values.externalCert.fapiPepAS.mtlsCASecretName }}
+  name: {{ .Values.externalCert.fapiPepAs.mtlsCASecretName }}
 spec:
   refreshInterval: 1h             
   secretStoreRef:
     kind: SecretStore
     name: gcp-store               
   target:
-    name: {{ .Values.externalCert.fapiPepAS.mtlsCASecretName }}
+    name: {{ .Values.externalCert.fapiPepAs.mtlsCASecretName }}
     creationPolicy: Owner
   data:
   - secretKey: ca.crt
     remoteRef:
-      key: {{ .Values.externalCert.fapiPepAS.mtlsCAGoogleSecretName }}
+      key: {{ .Values.externalCert.fapiPepAs.mtlsCAGoogleSecretName }}
 {{ end }}
