@@ -15,66 +15,66 @@ spec:
     helm:
       parameters:
         # ConfigMap
-        - name: fapiPepAs.configmap.amRealm
+        - name: configmap.amRealm
           value: {{ .Values.fapiPepAs.configmap.amRealm }}
-        - name: fapiPepAs.configmap.baseFQDN
+        - name: configmap.baseFQDN
           value: {{ .Values.fapiPepAs.configmap.baseFQDN }}
-        - name: fapiPepAs.configmap.cloudType
+        - name: configmap.cloudType
           value: {{ .Values.fapiPepAs.configmap.cloudType }}
-        - name: fapiPepAs.configmap.identityPlatformFQDN
+        - name: configmap.identityPlatformFQDN
           value: {{ .Values.fapiPepAs.configmap.identityPlatformFQDN }}
-        - name: fapiPepAs.configmap.asFQDN
+        - name: configmap.asFQDN
           value: {{ .Values.fapiPepAs.configmap.asFQDN }}
-        - name: fapiPepAs.configmap.asMtlsFQDN
+        - name: configmap.asMtlsFQDN
           value: {{ .Values.fapiPepAs.configmap.asMtlsFQDN }}
-        - name: fapiPepAs.configmap.sapigType
+        - name: configmap.sapigType
           value: {{ .Values.fapiPepAs.configmap.sapigType }}
-        - name: fapiPepAs.configmap.testDirectoryFQDN
+        - name: configmap.testDirectoryFQDN
           value: {{ .Values.fapiPepAs.configmap.testDirectoryFQDN }}
-        - name: fapiPepAs.configmap.userObject
+        - name: configmap.userObject
           value: {{ .Values.fapiPepAs.configmap.userObject }}
-        - name: fapiPepAs.configmap.AIC.identityDefaultUserAuthenticationService
+        - name: configmap.AIC.identityDefaultUserAuthenticationService
           value: {{ .Values.fapiPepAs.configmap.identityDefaultUserAuthenticationService }}
-        - name: fapiPepAs.configmap.AIC.identityGoogleSecretStoreName
+        - name: configmap.AIC.identityGoogleSecretStoreName
           value: {{ .Values.fapiPepAs.configmap.identityGoogleSecretStoreName }}
-        - name: fapiPepAs.configmap.AIC.identityGoogleSecretStoreOAuth2CACertsSecretName
+        - name: configmap.AIC.identityGoogleSecretStoreOAuth2CACertsSecretName
           value: {{ .Values.fapiPepAs.configmap.identityGoogleSecretStoreOAuth2CACertsSecretName }}
         # Deployment
-        - name: fapiPepAs.deployment.image.repo
-          value: {{ .Values.fapiPepAs.deployment.repo}}
-        - name: fapiPepAs.deployment.image.tag
-          value: {{ .Values.fapiPepAs.deployment.tag }}
+        - name: deployment.image.repo
+          value: {{ .Values.fapiPepAs.deployment.image.repo}}
+        - name: deployment.image.tag
+          value: {{ .Values.fapiPepAs.deployment.image.tag }}
         # Ingress
-        - name: fapiPepAs.ingress.asSapig.host
+        - name: ingress.asSapig.host
           value: {{ .Values.fapiPepAs.ingress.asSapig.host }}
-        - name: fapiPepAs.ingress.asSapig.tls.host
+        - name: ingress.asSapig.tls.host
           value: {{ .Values.fapiPepAs.ingress.asSapig.tls.host }}
-        - name: fapiPepAs.ingress.asMtls.host
+        - name: ingress.asMtls.host
           value: {{ .Values.fapiPepAs.ingress.asMtls.host }}
-        - name: fapiPepAs.ingress.asMtls.tls.host
+        - name: ingress.asMtls.tls.host
           value: {{ .Values.fapiPepAs.ingress.asMtls.tls.host }}
-        - name: fapiPepAs.ingress.asIGSstudio.host
+        - name: ingress.asIGSstudio.host
           value: {{ .Values.fapiPepAs.ingress.asIGSstudio.host }}
-        - name: fapiPepAs.ingress.asIGSstudio.tls.host
+        - name: ingress.asIGSstudio.tls.host
           value: {{ .Values.fapiPepAs.ingress.asIGSstudio.tls.host }}
         # Secrets
-        - name: fapiPepAs.secrets.igAgentID
+        - name: secrets.igAgentID
           value: {{ .Values.fapiPepAs.secrets.igAgentID }}
-        - name: fapiPepAs.secrets.igAgentPassword
+        - name: secrets.igAgentPassword
           value: {{ .Values.fapiPepAs.secrets.igAgentPassword }}
-        - name: fapiPepAs.secrets.igClientID
+        - name: secrets.igClientID
           value: {{ .Values.fapiPepAs.secrets.igClientID }}
-        - name: fapiPepAs.secrets.igClientSecret
+        - name: secrets.igClientSecret
           value: {{ .Values.fapiPepAs.secrets.igClientSecret }}
-        - name: fapiPepAs.secrets.igIDMPassword
+        - name: secrets.igIDMPassword
           value: {{ .Values.fapiPepAs.secrets.igIDMPassword }}
-        - name: fapiPepAs.secrets.igIDMUser
+        - name: secrets.igIDMUser
           value: {{ .Values.fapiPepAs.secrets.igIDMUser }}
-        - name: fapiPepAs.secrets.igMetricsPassword
+        - name: secrets.igMetricsPassword
           value: {{ .Values.fapiPepAs.secrets.igMetricsPassword }}
-        - name: fapiPepAs.secrets.igMetricsUsername
+        - name: secrets.igMetricsUsername
           value: {{ .Values.fapiPepAs.secrets.igMetricsUsername }}
-        - name: fapiPepAs.secrets.igTruststorePassword
+        - name: secrets.igTruststorePassword
           value: {{ .Values.fapiPepAs.secrets.igTruststorePassword }}
     path: _infra/helm/secure-api-gateway-fapi-pep-as
     repoURL: https://github.com/SecureApiGateway/secure-api-gateway-fapi-pep-as

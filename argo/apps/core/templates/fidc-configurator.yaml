@@ -18,15 +18,15 @@ spec:
   source:
     helm:
       parameters:
-      - name: fidcConfigurator.job.environment.cloudType
+      - name: job.environment.cloudType
         value: {{ .Values.environment.cloudType }}
-      - name: fidcConfigurator.job.image.repo
-        value: {{ .Values.fidcConfigurator.repo}}
-      - name: fidcConfigurator.job.image.tag
-        value: {{ .Values.fidcConfigurator.tag }}
-      - name: fidcConfigurator.job.enabled
+      - name: job.image.repo
+        value: {{ .Values.fidcConfigurator.image.repo}}
+      - name: job.image.tag
+        value: {{ .Values.fidcConfigurator.image.tag }}
+      - name: job.enabled
         value: {{ .Values.fidcConfigurator.enabled | quote }}
-      - name: fidcConfigurator.job.environment.sapigType
+      - name: job.environment.sapigType
         value: core
     path: _infra/helm/securebanking-openbanking-uk-iam-initializer
     repoURL: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk-fidc-initializer

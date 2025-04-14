@@ -31,9 +31,9 @@ spec:
         - name: externalCert.testTrustedDirectory.tlsCertPrefix
           value: {{ .Values.externalCert.testTrustedDirectory.tlsCertPrefix }}
         - name: ig.truststore.googleSecretName
-          value: {{ .Values.devenvs.ig.truststore.googleSecretName }}
+          value: {{ .Values.ob.truststore.googleSecretName }}
         - name: ig.ob.signingkey.googleSecretName
-          value: {{ .Values.devenvs.ig.ob.signingkey.googleSecretName }}
+          value: {{ .Values.ob.signingkey.googleSecretName }}
     path: cluster/certificate
     repoURL: https://github.com/SecureBankingAccessToolkit/sbat-cd
     targetRevision: {{ .Values.spec.source.targetRevision }}

@@ -50,8 +50,9 @@ fapiPepAs:
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
     userObject: "user"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
+      tag: "latest"
   ingress:
     asMtls:
       host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
@@ -99,8 +100,9 @@ fapiPepRs:
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-core"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-core"
+      tag: "latest"
   ingress:
     rsMtls:
       host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
@@ -128,8 +130,9 @@ fapiPepRs:
 fidcConfigurator:
   enabled: "true"
   branch: "HEAD"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
+    tag: "latest"
 
 spec:
   project: "default"
@@ -147,16 +150,18 @@ testUserAccountCreator:
   branch: "HEAD"
   deployment:
     type: "Job"
-  repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
-  tag: "latest"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
+    tag: "latest"
 
 testTrustedDirectory:
   branch: "HEAD"
   configmap:
     igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
   deployment:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
-    tag: "latest"
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
+      tag: "latest"
   ingress:
     host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     tls:

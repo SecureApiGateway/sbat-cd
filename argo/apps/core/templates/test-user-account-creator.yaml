@@ -18,15 +18,15 @@ spec:
   source:
     helm:
       parameters:
-      - name: testUserAccountCreator.job.environment.cloudType
+      - name: job.environment.cloudType
         value: {{ .Values.environment.cloudType }}
-      - name: testUserAccountCreator.job.image.repo
-        value: {{ .Values.testUserAccountCreator.repo}}
-      - name: testUserAccountCreator.job.image.tag
-        value: {{ .Values.testUserAccountCreator.tag }}
-      - name: testUserAccountCreator.deployment.type
+      - name: job.image.repo
+        value: {{ .Values.testUserAccountCreator.image.repo}}
+      - name: job.image.tag
+        value: {{ .Values.testUserAccountCreator.image.tag }}
+      - name: deployment.type
         value: {{ .Values.testUserAccountCreator.deployment.type }}
-      - name: testUserAccountCreator.job.environment.sapigType
+      - name: job.environment.sapigType
         value: core
     path: _infra/helm/securebanking-test-data-initializer
     repoURL: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-test-data-initializer
