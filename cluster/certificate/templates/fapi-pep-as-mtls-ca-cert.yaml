@@ -1,5 +1,4 @@
 ---
-{{- if eq .Values.environment.sapigType "core" }}
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -16,4 +15,3 @@ spec:
   - secretKey: ca.crt
     remoteRef:
       key: {{ .Values.externalCert.fapiPepAs.mtlsCAGoogleSecretName }}
-{{ end }}
