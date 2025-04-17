@@ -52,7 +52,7 @@ fapiPepAs:
   deployment:
     image:
       repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
-      tag: "latest"
+      tag: "pr-124"
   ingress:
     asMtls:
       host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
@@ -103,7 +103,7 @@ fapiPepRs:
   deployment:
     image:
       repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-ob"
-      tag: "latest"
+      tag: "pr-588"
   ingress:
     rsMtls:
       host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
