@@ -35,7 +35,7 @@ externalCert:
     googleSecretName: "am-oauth2-ca-certs"
 
 fapiPepAs:
-  branch: "HEAD"
+  branch: "1676-split-ig-to-as-rs"
   configmap:
     amRealm: "alpha"
     asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
@@ -78,7 +78,7 @@ fapiPepAs:
     igTruststorePassword: "Y2hhbmdlaXQ="
 
 fapiPepRs:
-  branch: "HEAD"
+  branch: "1676-split-ig-to-as-rs"
   truststore:
     # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
     googleSecretName: am-oauth2-ca-certs
@@ -134,19 +134,19 @@ fapiPepRs:
 
 fidcConfigurator:
   enabled: "true"
-  branch: "HEAD"
+  branch: "1676-split-ig-to-as-rs"
   image:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
     tag: "latest"
 
 remoteConsentServer:
-  branch: "HEAD"
+  branch: "1676-split-ig-to-as-rs"
   image:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rcs"
     tag: "latest"
 
 remoteConsentServiceUserInterface:
-  branch: "HEAD"
+  branch: "1676-split-ig-to-as-rs"
   image:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ui/rcs"
     tag: "latest"
@@ -164,7 +164,7 @@ spec:
       selfHeal: true
 
 testFacilityBank:
-  branch: "HEAD"
+  branch: "1676-split-ig-to-as-rs"
   image:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rs"
     tag: "latest"
@@ -190,7 +190,7 @@ testTrustedDirectory:
     igTestDirectorySigningKeystoreStorepass: "UGFzc3cwcmQ="
 
 testUserAccountCreator:
-  branch: "HEAD"
+  branch: "1676-split-ig-to-as-rs"
   deployment:
     type: "CronJob"
   image:
