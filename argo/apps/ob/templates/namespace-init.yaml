@@ -24,16 +24,20 @@ spec:
           value: {{ .Values.environment.projectId }}
         - name: environment.sapigType
           value: {{ .Values.environment.sapigType }}
-        - name: externalCert.ob.mtlsCertPrefix
-          value: {{ .Values.externalCert.ob.mtlsCertPrefix }}
-        - name: externalCert.ob.tlsCertPrefix
-          value: {{ .Values.externalCert.ob.tlsCertPrefix }}
+        - name: externalCert.fapiPepAs.mtlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepAs.mtlsCertPrefix }}
+        - name: externalCert.fapiPepRs.mtlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepRs.mtlsCertPrefix }}
+        - name: externalCert.fapiPepAs.tlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepAs.tlsCertPrefix }}
+        - name: externalCert.fapiPepRs.tlsCertPrefix
+          value: {{ .Values.externalCert.fapiPepRs.tlsCertPrefix }}
         - name: externalCert.testTrustedDirectory.tlsCertPrefix
           value: {{ .Values.externalCert.testTrustedDirectory.tlsCertPrefix }}
         - name: ig.truststore.googleSecretName
-          value: {{ .Values.ob.truststore.googleSecretName }}
+          value: {{ .Values.externalCert.truststore.googleSecretName }}
         - name: ig.ob.signingkey.googleSecretName
-          value: {{ .Values.ob.signingkey.googleSecretName }}
+          value: {{ .Values.externalCert.ob.signingkey.googleSecretName }}
     path: cluster/certificate
     repoURL: https://github.com/SecureBankingAccessToolkit/sbat-cd
     targetRevision: {{ .Values.spec.source.targetRevision }}
