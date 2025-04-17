@@ -139,7 +139,7 @@ fidcConfigurator:
   branch: "1676-split-ig-to-as-rs"
   image:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-    tag: "latest"
+    tag: "pr-270"
 
 remoteConsentServer:
   branch: "1676-split-ig-to-as-rs"
