@@ -157,7 +157,7 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: "dev"
   source:
-    targetRevision: "HEAD"
+    targetRevision: "1676-split-ig-to-as-rs"
   syncPolicy: 
     automated:
       prune: true
