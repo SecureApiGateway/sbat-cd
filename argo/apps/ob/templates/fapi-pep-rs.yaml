@@ -91,7 +91,7 @@ spec:
         - name: secrets.mongodbTestFacilityUsername
           value: {{ .Values.fapiPepRs.secrets.mongodbTestFacilityUsername }}
     path: _infra/helm/secure-api-gateway-ob-uk
-    repoURL: https://github.com/SecureApiGateway/secure-api-gateway-ob-uk
+    repoURL: https://github.com/SecureApiGateway/secure-api-gateway-fapi-pep-rs-ob
     targetRevision: {{ .Values.fapiPepRs.branch }}
   syncPolicy:
     {{- toYaml .Values.spec.syncPolicy | nindent 4 }}
