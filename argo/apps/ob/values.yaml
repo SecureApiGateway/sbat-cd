@@ -12,38 +12,37 @@ environment:
   sapigType: "ob"
 
 externalCert:
-  ob:
-    mtlsCertPrefix: "dev"
-    mtlsSecretName: "mtls-tls-cert"
+  fapiPepAs:
+    mtlsCertPrefix: "dev-as-mtls"
+    mtlsSecretName: "fapi-pep-as-mtls-tls-cert"
     tlsCertPrefix: "dev"
-    tlsSecretName: "sapig-tls-cert"
+    tlsSecretName: "fapi-pep-as-tls-cert"
+  fapiPepRs:
+    mtlsCertPrefix: "dev-rs-mtls"
+    mtlsSecretName: "fapi-pep-rs-mtls-tls-cert"
+    tlsCertPrefix: "dev"
+    tlsSecretName: "fapi-pep-rs-tls-cert"
+  ob:
+    signingkey:
+      googleSecretName: "ig-ob-signing-key"
   testTrustedDirectory:
     mtlscaSecretName: "test-trusted-directory-mtls-ca-certs"
     mtlscaGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
     tlsSecretName: "test-trusted-directory-tls-cert"
     tlsCertPrefix: "dev"
-
-fidcConfigurator:
-  enabled: "true"
-  branch: "HEAD"
-  image:
-    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
-    tag: "latest"
-
-ob:
-  branch: "HEAD"
   truststore:
     # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
-    googleSecretName: am-oauth2-ca-certs
-  signingkey:
-    googleSecretName: ig-ob-signing-key
+    googleSecretName: "am-oauth2-ca-certs"
+
+fapiPepAs:
+  branch: "HEAD"
   configmap:
     amRealm: "alpha"
+    asFQDN: "as-sapig.dev-cdk-ob.forgerock.financial"
+    asMtlsFQDN: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
     baseFQDN: "dev-cdk-ob.forgerock.financial"
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
-    igFQDN: "sapig.dev-cdk-ob.forgerock.financial"
-    mtlsFQDN: "mtls.sapig.dev-cdk-ob.forgerock.financial"
     sapigType: "ob"
     testDirectoryFQDN: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
     identityDefaultUserAuthenticationService: "PasswordGrant"
@@ -52,21 +51,72 @@ ob:
     userObject: "user"
   deployment:
     image:
-      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/ig"
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
       tag: "latest"
   ingress:
-    sapig:
-      host: "sapig.dev-cdk-ob.forgerock.financial"
+    asMtls:
+      host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
       tls:
-        host: "sapig.dev-cdk-ob.forgerock.financial"
-    mtls:
-      host: "mtls.sapig.dev-cdk-ob.forgerock.financial"
+        host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    asSapig:
+      host: "as-sapig.dev-cdk-ob.forgerock.financial"
       tls:
-        host: "mtls.sapig.dev-cdk-ob.forgerock.financial"
-    igWeb:
-      host: "sapig.dev-cdk-ob.forgerock.financial"
+        host: "as-sapig.dev-cdk-ob.forgerock.financial"
+    asIGSstudio:
+      host: "as-sapig.dev-cdk-ob.forgerock.financial"
       tls:
-        host: "sapig.dev-cdk-ob.forgerock.financial"
+        host: "as-sapig.dev-cdk-ob.forgerock.financial"
+  secrets:
+    igAgentID: "aWctYWdlbnQ="
+    igAgentPassword: "cGFzc3dvcmQ="
+    igClientID: "aWctY2xpZW50"
+    igClientSecret: "cGFzc3dvcmQ="
+    igIDMPassword: "MHBlbkJhbmtpbmch"
+    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    igMetricsPassword: "cGFzc3dvcmQ="
+    igMetricsUsername: "dXNlcg=="
+    igTruststorePassword: "Y2hhbmdlaXQ="
+    igOBASPSPSigningKeystoreKeypass: "cGFzc3dvcmQ="
+    igOBASPSPSigningKeystoreStorepass: "cGFzc3dvcmQ="
+
+fapiPepRs:
+  branch: "HEAD"
+  truststore:
+    # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
+    googleSecretName: am-oauth2-ca-certs
+  signingkey:
+    googleSecretName: ig-ob-signing-key
+  configmap:
+    amRealm: "alpha"
+    asFQDN: "as-sapig.dev-cdk-ob.forgerock.financial"
+    baseFQDN: "dev-cdk-ob.forgerock.financial"
+    cloudType: "CDK"
+    identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
+    rsFQDN: "rs-sapig.dev-cdk-ob.forgerock.financial"
+    rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    sapigType: "ob"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
+    userObject: "user"
+    identityDefaultUserAuthenticationService: "PasswordGrant"
+    identityGoogleSecretStoreName: "ESV"
+    identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-ob-am-oauth2-ca-certs"
+  deployment:
+    image:
+      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-ob"
+      tag: "latest"
+  ingress:
+    rsMtls:
+      host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    rsSapig:
+      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+    rsIGSstudio:
+      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
+      tls:
+        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
   secrets:
     igAgentID: "aWctYWdlbnQ="
     igAgentPassword: "cGFzc3dvcmQ="
@@ -83,6 +133,14 @@ ob:
     mongodbConsentUsername: "Y29uc2VudA=="
     mongodbTestFacilityPassword: "UlZkYjdZdlg5NjdR"
     mongodbTestFacilityUsername:  "dGVzdC1mYWNpbGl0eS1iYW5r"
+
+fidcConfigurator:
+  enabled: "true"
+  branch: "HEAD"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
+    tag: "latest"
+
 remoteConsentServer:
   branch: "HEAD"
   image:
