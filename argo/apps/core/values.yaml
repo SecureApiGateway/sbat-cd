@@ -43,6 +43,7 @@ fapiPepAs:
     baseFQDN: "dev-cdk-core.forgerock.financial"
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
+    igOBASPSPSigningKid: "4n8h20rzgJc4RM_8Uf3t98P6QcA"
     sapigType: "core"
     testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     identityDefaultUserAuthenticationService: "PasswordGrant"
