@@ -73,7 +73,7 @@ fapiPepAs:
     igClientID: "aWctY2xpZW50"
     igClientSecret: "cGFzc3dvcmQ="
     igAsIdmClientSecret: "MHBlbkJhbmtpbmch"
-    igRsIdmClientSecret: "MHBlbkJhbmtpbmch"
+    igRsIdmClientSecret: "T3BlbkJhbmtpbmchCg=="
     igMetricsPassword: "cGFzc3dvcmQ="
     igMetricsUsername: "dXNlcg=="
     igTruststorePassword: "Y2hhbmdlaXQ="
