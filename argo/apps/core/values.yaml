@@ -125,7 +125,7 @@ fapiPepRs:
     igClientID: "aWctY2xpZW50"
     igClientSecret: "cGFzc3dvcmQ="
     igAsIdmClientSecret: "MHBlbkJhbmtpbmch"
-    igRsIdmClientSecret: "T3BlbkJhbmtpbmchCg=="
+    igRsIdmClientSecret: "T3BlbkJhbmtpbmch"
     igMetricsPassword: "cGFzc3dvcmQ="
     igMetricsUsername: "dXNlcg=="
     igTruststorePassword: "Y2hhbmdlaXQ="
