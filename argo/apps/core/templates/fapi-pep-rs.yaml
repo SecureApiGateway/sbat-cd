@@ -69,9 +69,9 @@ spec:
         - name: secrets.igClientSecret
           value: {{ .Values.fapiPepRs.secrets.igClientSecret }}
         - name: secrets.igAsIdmClientSecret
-          value: {{ .Values.fapiPepAs.secrets.igAsIdmClientSecret }}
+          value: {{ .Values.fapiPepRs.secrets.igAsIdmClientSecret }}
         - name: secrets.igRsIdmClientSecret
-          value: {{ .Values.fapiPepAs.secrets.igRsIdmClientSecret }}
+          value: {{ .Values.fapiPepRs.secrets.igRsIdmClientSecret }}
         - name: secrets.igMetricsPassword
           value: {{ .Values.fapiPepRs.secrets.igMetricsPassword }}
         - name: secrets.igMetricsUsername
