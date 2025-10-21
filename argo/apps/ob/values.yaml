@@ -63,10 +63,7 @@ fapiPepAs:
       host: "as-sapig.dev-cdk-ob.forgerock.financial"
       tls:
         host: "as-sapig.dev-cdk-ob.forgerock.financial"
-    asIGSstudio:
-      host: "as-sapig.dev-cdk-ob.forgerock.financial"
-      tls:
-        host: "as-sapig.dev-cdk-ob.forgerock.financial"
+    enableStudio: true
   secrets:
     igAgentID: "aWctYWdlbnQ="
     igAgentPassword: "cGFzc3dvcmQ="
@@ -106,15 +103,12 @@ fapiPepRs:
       repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-ob"
       tag: "latest"
   ingress:
+    enableStudio: true
     rsMtls:
       host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
       tls:
         host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
     rsSapig:
-      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
-      tls:
-        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
-    rsIGSstudio:
       host: "rs-sapig.dev-cdk-ob.forgerock.financial"
       tls:
         host: "rs-sapig.dev-cdk-ob.forgerock.financial"

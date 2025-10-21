@@ -55,10 +55,8 @@ spec:
           value: {{ .Values.fapiPepAs.ingress.asMtls.host }}
         - name: ingress.asMtls.tls.host
           value: {{ .Values.fapiPepAs.ingress.asMtls.tls.host }}
-        - name: ingress.asIGSstudio.host
-          value: {{ .Values.fapiPepAs.ingress.asIGSstudio.host }}
-        - name: ingress.asIGSstudio.tls.host
-          value: {{ .Values.fapiPepAs.ingress.asIGSstudio.tls.host }}
+        - name: ingress.enableStudio
+          value: {{ .Values.fapiPepAs.ingress.enableStudio | quote }}
         # Secrets
         - name: secrets.igAgentID
           value: {{ .Values.fapiPepAs.secrets.igAgentID }}
