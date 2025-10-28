@@ -27,8 +27,6 @@ spec:
           value: {{ .Values.fapiPepAs.configmap.asFQDN }}
         - name: configmap.asMtlsFQDN
           value: {{ .Values.fapiPepAs.configmap.asMtlsFQDN }}
-        - name: configmap.igOBASPSPSigningKid
-          value: {{ .Values.fapiPepAs.configmap.igOBASPSPSigningKid }}
         - name: configmap.sapigType
           value: {{ .Values.fapiPepAs.configmap.sapigType }}
         - name: configmap.testDirectoryFQDN
@@ -76,10 +74,6 @@ spec:
           value: {{ .Values.fapiPepAs.secrets.igMetricsUsername }}
         - name: secrets.igTruststorePassword
           value: {{ .Values.fapiPepAs.secrets.igTruststorePassword }}
-        - name: secrets.igOBASPSPSigningKeystoreKeypass
-          value: {{ .Values.fapiPepAs.secrets.igOBASPSPSigningKeystoreKeypass }}
-        - name: secrets.igOBASPSPSigningKeystoreStorepass
-          value: {{ .Values.fapiPepAs.secrets.igOBASPSPSigningKeystoreStorepass }}
     path: _infra/helm/secure-api-gateway-fapi-pep-as
     repoURL: https://github.com/SecureApiGateway/secure-api-gateway-fapi-pep-as
     targetRevision: {{ .Values.fapiPepAs.branch }}

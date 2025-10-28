@@ -43,7 +43,6 @@ fapiPepAs:
     baseFQDN: "dev-cdk-core.forgerock.financial"
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
-    igOBASPSPSigningKid: "8rzhDR1TEWDVtb1iE6IZyTZ7r0E"
     sapigType: "core"
     testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     identityDefaultUserAuthenticationService: "PasswordGrant"
@@ -74,8 +73,6 @@ fapiPepAs:
     igMetricsPassword: "cGFzc3dvcmQ="
     igMetricsUsername: "dXNlcg=="
     igTruststorePassword: "Y2hhbmdlaXQ="
-    igOBASPSPSigningKeystoreKeypass: "cGFzc3dvcmQ="
-    igOBASPSPSigningKeystoreStorepass: "cGFzc3dvcmQ="
 
 fapiPepRs:
   branch: "HEAD"
