@@ -44,7 +44,7 @@ ig:
   ob:
     signingKey:
       fileName: "ig-ob-signing-key.p12"
-      googleSecretName: "ig-ob-signing-key"
+      googleSecretName: "dev-ig-ob-signing-key"
       secretName: "ig-ob-signing-key"
   testTrustedDirectory:
     fileName: "test-trusted-directory-keystore.p12"
