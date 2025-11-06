@@ -73,8 +73,6 @@ fapiPepAs:
     igMetricsPassword: "cGFzc3dvcmQ="
     igMetricsUsername: "dXNlcg=="
     igTruststorePassword: "Y2hhbmdlaXQ="
-    igOBASPSPSigningKeystoreKeypass: "cGFzc3dvcmQ="
-    igOBASPSPSigningKeystoreStorepass: "cGFzc3dvcmQ="
 
 fapiPepRs:
   branch: "HEAD"
