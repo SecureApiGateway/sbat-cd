@@ -24,7 +24,7 @@ externalCert:
     tlsSecretName: "fapi-pep-rs-tls-cert"
   ob:
     signingkey:
-      googleSecretName: "ig-ob-signing-key"
+      googleSecretName: "dev-ig-ob-signing-key"
   testTrustedDirectory:
     mtlsCAGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
     mtlsCASecretName: "test-trusted-directory-mtls-ca-certs"
