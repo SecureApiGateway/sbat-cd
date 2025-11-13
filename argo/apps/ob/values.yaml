@@ -24,7 +24,7 @@ externalCert:
     tlsSecretName: "fapi-pep-rs-tls-cert"
   ob:
     signingkey:
-      googleSecretName: "ig-ob-signing-key"
+      googleSecretName: "dev-ig-ob-signing-key"
   testTrustedDirectory:
     mtlscaSecretName: "test-trusted-directory-mtls-ca-certs"
     mtlscaGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
@@ -43,6 +43,7 @@ fapiPepAs:
     baseFQDN: "dev-cdk-ob.forgerock.financial"
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
+    igOBASPSPSigningKid: "0QidrUZc2Qk-PHqbYD5VEYGm_og"
     sapigType: "ob"
     testDirectoryFQDN: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
     identityDefaultUserAuthenticationService: "PasswordGrant"
