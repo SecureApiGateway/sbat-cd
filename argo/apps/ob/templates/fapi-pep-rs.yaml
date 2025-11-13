@@ -29,6 +29,8 @@ spec:
           value: {{ .Values.fapiPepRs.configmap.rsFQDN }}
         - name: configmap.rsMtlsFQDN
           value: {{ .Values.fapiPepRs.configmap.rsMtlsFQDN }}
+        - name: configmap.igOBASPSPSigningKid
+          value: {{ .Values.fapiPepRs.configmap.igOBASPSPSigningKid }}
         - name: configmap.sapigType
           value: {{ .Values.fapiPepRs.configmap.sapigType }}
         - name: configmap.testDirectoryFQDN

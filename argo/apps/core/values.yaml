@@ -22,9 +22,6 @@ externalCert:
     mtlsSecretName: "fapi-pep-rs-mtls-tls-cert"
     tlsCertPrefix: "dev"
     tlsSecretName: "fapi-pep-rs-tls-cert"
-  ob:
-    signingkey:
-      googleSecretName: "dev-ig-ob-signing-key"
   testTrustedDirectory:
     mtlsCAGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
     mtlsCASecretName: "test-trusted-directory-mtls-ca-certs"
@@ -43,7 +40,6 @@ fapiPepAs:
     baseFQDN: "dev-cdk-core.forgerock.financial"
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
-    igOBASPSPSigningKid: "0QidrUZc2Qk-PHqbYD5VEYGm_og"
     sapigType: "core"
     testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     identityDefaultUserAuthenticationService: "PasswordGrant"
@@ -74,17 +70,12 @@ fapiPepAs:
     igMetricsPassword: "cGFzc3dvcmQ="
     igMetricsUsername: "dXNlcg=="
     igTruststorePassword: "Y2hhbmdlaXQ="
-    igOBASPSPSigningKeystoreKeypass: "cGFzc3dvcmQ="
-    igOBASPSPSigningKeystoreStorepass: "cGFzc3dvcmQ="
 
 fapiPepRs:
   branch: "HEAD"
   truststore:
     # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
     googleSecretName: "am-oauth2-ca-certs"
-  ob:
-    signingkey:
-      googleSecretName: "ig-ob-signing-key"
   configmap:
     amRealm: "alpha"
     asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
