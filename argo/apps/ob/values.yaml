@@ -87,7 +87,7 @@ fapiPepRs:
     baseFQDN: "dev-cdk-ob.forgerock.financial"
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
-    igOBASPSPSigningKid: "0QidrUZc2Qk-PHqbYD5VEYGm_og"
+    igOBASPSPSigningKid: "zBlb3x2klab0COMzC5ROYxNo8n4"
     rsFQDN: "rs-sapig.dev-cdk-ob.forgerock.financial"
     rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
     sapigType: "ob"
