@@ -73,9 +73,6 @@ fapiPepAs:
 
 fapiPepRs:
   branch: "HEAD"
-  truststore:
-    # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
-    googleSecretName: "am-oauth2-ca-certs"
   configmap:
     amRealm: "alpha"
     asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
