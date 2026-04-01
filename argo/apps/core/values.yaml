@@ -141,8 +141,14 @@ testUserAccountCreator:
 
 testTrustedDirectory:
   branch: "HEAD"
-  configmap:
-    igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+  config:
+    fqdn: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    ca:
+      keystoreKeypass: "UGFzc3cwcmQ="
+      keystoreStorepass: "UGFzc3cwcmQ="
+    signing:
+      keystoreKeypass: "UGFzc3cwcmQ="
+      keystoreStorepass: "UGFzc3cwcmQ="
   deployment:
     image:
       repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
@@ -151,10 +157,3 @@ testTrustedDirectory:
     host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     tls:
       host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
-  secrets:
-    igMetricsPassword: "dXNlcg=="
-    igMetricsUsername: "cGFzc3dvcmQ="
-    igTestDirectoryCAKeystoreKeypass: "UGFzc3cwcmQ="
-    igTestDirectoryCAKeystoreStorepass: "UGFzc3cwcmQ="
-    igTestDirectorySigningKeystoreKeypass: "UGFzc3cwcmQ="
-    igTestDirectorySigningKeystoreStorepass: "UGFzc3cwcmQ="
