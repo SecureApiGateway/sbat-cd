@@ -17,14 +17,14 @@ spec:
         # Config
         - name: config.fqdn
           value: {{ .Values.testTrustedDirectory.config.fqdn }}
-        - name: config.ca.keystoreKeyPass
-          value: {{ .Values.testTrustedDirectory.config.ca.keystoreKeyPass }}
-        - name: config.ca.keystoreStorePass
-          value: {{ .Values.testTrustedDirectory.config.ca.keystoreStorePass }}
-        - name: config.signing.keystoreKeyPass
-          value: {{ .Values.testTrustedDirectory.config.signing.keystoreKeypass }}
-        - name: config.signing.keystoreStorePass
-          value: {{ .Values.testTrustedDirectory.config.signing.keystoreStorepass }}
+        - name: config.ca.keystorePwd
+          value: {{ .Values.testTrustedDirectory.config.ca.keystorePwd }}
+        - name: config.ca.keystoreKeyPwd
+          value: {{ .Values.testTrustedDirectory.config.ca.keystoreKeyPwd }}
+        - name: config.signing.keystorePwd
+          value: {{ .Values.testTrustedDirectory.config.signing.keystorePwd }}
+        - name: config.signing.keystoreKeyPwd
+          value: {{ .Values.testTrustedDirectory.config.signing.keystoreKeyPwd }}
         # Deployment
         - name: deployment.image.repo
           value: {{ .Values.testTrustedDirectory.deployment.image.repo }}

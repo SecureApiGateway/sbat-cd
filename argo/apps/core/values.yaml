@@ -144,11 +144,11 @@ testTrustedDirectory:
   config:
     fqdn: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     ca:
-      keystoreKeypass: "UGFzc3cwcmQ="
-      keystoreStorepass: "UGFzc3cwcmQ="
+      keystorePwd: "UGFzc3cwcmQ="
+      keystoreKeyPwd: "UGFzc3cwcmQ="
     signing:
-      keystoreKeypass: "UGFzc3cwcmQ="
-      keystoreStorepass: "UGFzc3cwcmQ="
+      keystorePwd: "UGFzc3cwcmQ="
+      keystoreKeyPwd: "UGFzc3cwcmQ="
   deployment:
     image:
       repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
