@@ -25,10 +25,10 @@ externalCert:
   ob:
     signingKey:
       googleSecretName: "dev-ig-ob-signing-key"
-  testTrustedDirectory:
-    mtlscaSecretName: "test-trusted-directory-mtls-ca-certs"
-    mtlscaGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
-    tlsSecretName: "test-trusted-directory-tls-cert"
+  sampleTrustedDirectory:
+    mtlscaSecretName: "sample-trusted-directory-mtls-ca-certs"
+    mtlscaGoogleSecretName: "sample-trusted-directory-mtls-ca-certs"
+    tlsSecretName: "sample-trusted-directory-tls-cert"
     tlsCertPrefix: "dev"
   truststore:
     # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
@@ -159,7 +159,7 @@ testFacilityBank:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-openbanking-uk-rs"
     tag: "latest"
 
-testTrustedDirectory:
+sampleTrustedDirectory:
   branch: "HEAD"
   config:
     fqdn: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
@@ -171,7 +171,7 @@ testTrustedDirectory:
       keystoreStorepass: "UGFzc3cwcmQ="
   deployment:
     image:
-      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
+      repo: "gcr.io/forgerock-io/ig-sample-trusted-directory/docker-build"
       tag: "latest"
   ingress:
     host: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
