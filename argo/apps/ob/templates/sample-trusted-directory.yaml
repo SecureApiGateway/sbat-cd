@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-trusted-directory-{{ .Release.Name }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.spec.destination.namespace }}
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  source:
+    helm:
+      parameters:
+        # Config
+        - name: config.fqdn
+          value: {{ .Values.sampleTrustedDirectory.config.fqdn }}
+        - name: config.ca.keystorePwd
+          value: {{ .Values.sampleTrustedDirectory.config.ca.keystorePwd }}
+        - name: config.ca.keystoreKeyPwd
+          value: {{ .Values.sampleTrustedDirectory.config.ca.keystoreKeyPwd }}
+        - name: config.signing.keystorePwd
+          value: {{ .Values.sampleTrustedDirectory.config.signing.keystorePwd }}
+        - name: config.signing.keystoreKeyPwd
+          value: {{ .Values.sampleTrustedDirectory.config.signing.keystoreKeyPwd }}
+        # Deployment
+        - name: deployment.image.repo
+          value: {{ .Values.sampleTrustedDirectory.deployment.image.repo }}
+        - name: deployment.image.tag
+          value: {{ .Values.sampleTrustedDirectory.deployment.image.tag }}
+        # Ingress
+        - name: ingress.host
+          value: {{ .Values.sampleTrustedDirectory.ingress.host }}
+        - name: ingress.tls.host
+          value: {{ .Values.sampleTrustedDirectory.ingress.tls.host }}
+    path: openig-apps/openig-sample-trusted-directory/helm/sample-trusted-directory
+    repoURL: https://github.com/ping-rocks/openig.git
+    targetRevision: {{ .Values.sampleTrustedDirectory.branch }}
+  syncPolicy:
+    {{- toYaml .Values.spec.syncPolicy | nindent 4 }}

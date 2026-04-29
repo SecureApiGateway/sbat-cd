@@ -22,11 +22,11 @@ externalCert:
     mtlsSecretName: "fapi-pep-rs-mtls-tls-cert"
     tlsCertPrefix: "dev"
     tlsSecretName: "fapi-pep-rs-tls-cert"
-  testTrustedDirectory:
-    mtlsCAGoogleSecretName: "test-trusted-directory-mtls-ca-certs"
-    mtlsCASecretName: "test-trusted-directory-mtls-ca-certs"
+  sampleTrustedDirectory:
+    mtlsCAGoogleSecretName: "sample-trusted-directory-mtls-ca-certs"
+    mtlsCASecretName: "sample-trusted-directory-mtls-ca-certs"
     tlsCertPrefix: "dev"
-    tlsSecretName: "test-trusted-directory-tls-cert"
+    tlsSecretName: "sample-trusted-directory-tls-cert"
   truststore:
     # Reusing the secret that configures AM to trust CAs for OAuth 2.0 tls_client_auth
     googleSecretName: "am-oauth2-ca-certs"
@@ -41,7 +41,7 @@ fapiPepAs:
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
     sapigType: "core"
-    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    testDirectoryFQDN: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
@@ -82,7 +82,7 @@ fapiPepRs:
     rsFQDN: "rs-sapig.dev-cdk-core.forgerock.financial"
     rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
     sapigType: "core"
-    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    testDirectoryFQDN: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
     userObject: "user"
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
@@ -139,22 +139,21 @@ testUserAccountCreator:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
     tag: "latest"
 
-testTrustedDirectory:
+sampleTrustedDirectory:
   branch: "HEAD"
-  configmap:
-    igTestDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+  config:
+    fqdn: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
+    ca:
+      keystorePwd: "UGFzc3cwcmQ="
+      keystoreKeyPwd: "UGFzc3cwcmQ="
+    signing:
+      keystorePwd: "UGFzc3cwcmQ="
+      keystoreKeyPwd: "UGFzc3cwcmQ="
   deployment:
     image:
-      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/sapig-test-trusted-directory"
+      repo: "gcr.io/forgerock-io/ig-sample-trusted-directory/docker-build"
       tag: "latest"
   ingress:
-    host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
+    host: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
     tls:
-      host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
-  secrets:
-    igMetricsPassword: "dXNlcg=="
-    igMetricsUsername: "cGFzc3dvcmQ="
-    igTestDirectoryCAKeystoreKeypass: "UGFzc3cwcmQ="
-    igTestDirectoryCAKeystoreStorepass: "UGFzc3cwcmQ="
-    igTestDirectorySigningKeystoreKeypass: "UGFzc3cwcmQ="
-    igTestDirectorySigningKeystoreStorepass: "UGFzc3cwcmQ="
+      host: "sample-trusted-directory.dev-cdk-core.forgerock.financial"

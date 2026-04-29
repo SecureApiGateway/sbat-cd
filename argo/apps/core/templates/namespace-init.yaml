@@ -32,8 +32,8 @@ spec:
           value: {{ .Values.externalCert.fapiPepAs.tlsCertPrefix }}
         - name: externalCert.fapiPepRs.tlsCertPrefix
           value: {{ .Values.externalCert.fapiPepRs.tlsCertPrefix }}
-        - name: externalCert.testTrustedDirectory.tlsCertPrefix
-          value: {{ .Values.externalCert.testTrustedDirectory.tlsCertPrefix }}
+        - name: externalCert.sampleTrustedDirectory.tlsCertPrefix
+          value: {{ .Values.externalCert.sampleTrustedDirectory.tlsCertPrefix }}
         - name: ig.truststore.googleSecretName
           value: {{ .Values.externalCert.truststore.googleSecretName }}
     path: cluster/certificate
