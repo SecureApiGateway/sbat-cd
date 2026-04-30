@@ -176,4 +176,11 @@ sampleTrustedDirectory:
   ingress:
     host: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
     tls:
-      host: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
+
+testUserAccountCreator:
+  branch: "HEAD"
+  deployment:
+    type: "CronJob"
+  image:
+    repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/securebanking-test-data-initializer"
+    tag: "latest"
