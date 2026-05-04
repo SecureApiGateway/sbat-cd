@@ -164,11 +164,11 @@ sampleTrustedDirectory:
   config:
     fqdn: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
     ca:
-      keystoreKeypass: "UGFzc3cwcmQ="
-      keystoreStorepass: "UGFzc3cwcmQ="
+      keystoreKeyPwd: "UGFzc3cwcmQ="
+      keystorePwd: "UGFzc3cwcmQ="
     signing:
-      keystoreKeypass: "UGFzc3cwcmQ="
-      keystoreStorepass: "UGFzc3cwcmQ="
+      keystoreKeyPwd: "UGFzc3cwcmQ="
+      keystorePwd: "UGFzc3cwcmQ="
   deployment:
     image:
       repo: "gcr.io/forgerock-io/ig-sample-trusted-directory/docker-build"
