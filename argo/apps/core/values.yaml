@@ -41,7 +41,7 @@ fapiPepAs:
     cloudType: "CDK"
     identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
     sapigType: "core"
-    testDirectoryFQDN: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
@@ -82,7 +82,7 @@ fapiPepRs:
     rsFQDN: "rs-sapig.dev-cdk-core.forgerock.financial"
     rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
     sapigType: "core"
-    testDirectoryFQDN: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
+    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     userObject: "user"
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
@@ -142,7 +142,7 @@ testUserAccountCreator:
 sampleTrustedDirectory:
   branch: "HEAD"
   config:
-    fqdn: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
+    fqdn: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     ca:
       keystorePwd: "UGFzc3cwcmQ="
       keystoreKeyPwd: "UGFzc3cwcmQ="
@@ -154,6 +154,6 @@ sampleTrustedDirectory:
       repo: "gcr.io/forgerock-io/ig-sample-trusted-directory/docker-build"
       tag: "latest"
   ingress:
-    host: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
+    host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     tls:
-      host: "sample-trusted-directory.dev-cdk-core.forgerock.financial"
+      host: "test-trusted-directory.dev-cdk-core.forgerock.financial"
