@@ -64,10 +64,10 @@ spec:
           value: {{ .Values.fapiPepAs.secrets.igClientID }}
         - name: secrets.igClientSecret
           value: {{ .Values.fapiPepAs.secrets.igClientSecret }}
-        - name: secrets.igIDMPassword
-          value: {{ .Values.fapiPepAs.secrets.igIDMPassword }}
-        - name: secrets.igIDMUser
-          value: {{ .Values.fapiPepAs.secrets.igIDMUser }}
+        - name: secrets.igAsIdmClientSecret
+          value: {{ .Values.fapiPepAs.secrets.igAsIdmClientSecret }}
+        - name: secrets.igRsIdmClientSecret
+          value: {{ .Values.fapiPepAs.secrets.igRsIdmClientSecret }}
         - name: secrets.igMetricsPassword
           value: {{ .Values.fapiPepAs.secrets.igMetricsPassword }}
         - name: secrets.igMetricsUsername
