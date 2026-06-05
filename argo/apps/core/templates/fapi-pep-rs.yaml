@@ -31,8 +31,6 @@ spec:
           value: {{ .Values.fapiPepRs.configmap.rsMtlsFQDN }}
         - name: configmap.sapigType
           value: {{ .Values.fapiPepRs.configmap.sapigType }}
-        - name: configmap.testDirectoryFQDN
-          value: {{ .Values.fapiPepRs.configmap.testDirectoryFQDN }}
         - name: configmap.userObject
           value: {{ .Values.fapiPepRs.configmap.userObject }}
         - name: configmap.AIC.identityDefaultUserAuthenticationService
@@ -74,8 +72,6 @@ spec:
           value: {{ .Values.fapiPepRs.secrets.igMetricsPassword }}
         - name: secrets.igMetricsUsername
           value: {{ .Values.fapiPepRs.secrets.igMetricsUsername }}
-        - name: secrets.igTruststorePassword
-          value: {{ .Values.fapiPepRs.secrets.igTruststorePassword }}
     path: _infra/helm/secure-api-gateway-fapi-pep-rs-core
     repoURL: https://github.com/SecureApiGateway/secure-api-gateway-fapi-pep-rs-core
     targetRevision: {{ .Values.fapiPepRs.branch }}

@@ -69,7 +69,6 @@ fapiPepAs:
     igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
     igMetricsPassword: "cGFzc3dvcmQ="
     igMetricsUsername: "dXNlcg=="
-    igTruststorePassword: "Y2hhbmdlaXQ="
 
 fapiPepRs:
   branch: "HEAD"
@@ -82,7 +81,6 @@ fapiPepRs:
     rsFQDN: "rs-sapig.dev-cdk-core.forgerock.financial"
     rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
     sapigType: "core"
-    testDirectoryFQDN: "test-trusted-directory.dev-cdk-core.forgerock.financial"
     userObject: "user"
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
@@ -110,7 +108,6 @@ fapiPepRs:
     igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
     igMetricsPassword: "cGFzc3dvcmQ="
     igMetricsUsername: "dXNlcg=="
-    igTruststorePassword: "Y2hhbmdlaXQ="
 
 fidcConfigurator:
   enabled: "true"

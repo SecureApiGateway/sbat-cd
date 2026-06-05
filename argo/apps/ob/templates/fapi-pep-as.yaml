@@ -72,8 +72,6 @@ spec:
           value: {{ .Values.fapiPepAs.secrets.igMetricsPassword }}
         - name: secrets.igMetricsUsername
           value: {{ .Values.fapiPepAs.secrets.igMetricsUsername }}
-        - name: secrets.igTruststorePassword
-          value: {{ .Values.fapiPepAs.secrets.igTruststorePassword }}
     path: _infra/helm/secure-api-gateway-fapi-pep-as
     repoURL: https://github.com/SecureApiGateway/secure-api-gateway-fapi-pep-as
     targetRevision: {{ .Values.fapiPepAs.branch }}
