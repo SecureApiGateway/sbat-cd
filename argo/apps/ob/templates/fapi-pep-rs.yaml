@@ -33,8 +33,6 @@ spec:
           value: {{ .Values.fapiPepRs.configmap.igOBASPSPSigningKid }}
         - name: configmap.sapigType
           value: {{ .Values.fapiPepRs.configmap.sapigType }}
-        - name: configmap.testDirectoryFQDN
-          value: {{ .Values.fapiPepRs.configmap.testDirectoryFQDN }}
         - name: configmap.userObject
           value: {{ .Values.fapiPepRs.configmap.userObject }}
         - name: configmap.AIC.identityDefaultUserAuthenticationService
@@ -80,8 +78,6 @@ spec:
           value: {{ .Values.fapiPepRs.secrets.igOBASPSPSigningKeystoreKeypass }}
         - name: secrets.igOBASPSPSigningKeystoreStorepass
           value: {{ .Values.fapiPepRs.secrets.igOBASPSPSigningKeystoreStorepass }}
-        - name: secrets.igTruststorePassword
-          value: {{ .Values.fapiPepRs.secrets.igTruststorePassword }}
         - name: secrets.mongodbConsentPassword
           value: {{ .Values.fapiPepRs.secrets.mongodbConsentPassword }}
         - name: secrets.mongodbConsentUsername
