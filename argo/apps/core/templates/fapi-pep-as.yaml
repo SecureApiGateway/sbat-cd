@@ -53,8 +53,6 @@ spec:
           value: {{ .Values.fapiPepAs.ingress.asMtls.host }}
         - name: ingress.asMtls.tls.host
           value: {{ .Values.fapiPepAs.ingress.asMtls.tls.host }}
-        - name: ingress.enableStudio
-          value: {{ .Values.fapiPepAs.ingress.enableStudio | quote }}
         # Secrets
         - name: secrets.igAgentID
           value: {{ .Values.fapiPepAs.secrets.igAgentID }}
@@ -68,10 +66,6 @@ spec:
           value: {{ .Values.fapiPepAs.secrets.igIDMPassword }}
         - name: secrets.igIDMUser
           value: {{ .Values.fapiPepAs.secrets.igIDMUser }}
-        - name: secrets.igMetricsPassword
-          value: {{ .Values.fapiPepAs.secrets.igMetricsPassword }}
-        - name: secrets.igMetricsUsername
-          value: {{ .Values.fapiPepAs.secrets.igMetricsUsername }}
     path: _infra/helm/secure-api-gateway-fapi-pep-as
     repoURL: https://github.com/SecureApiGateway/secure-api-gateway-fapi-pep-as
     targetRevision: {{ .Values.fapiPepAs.branch }}
