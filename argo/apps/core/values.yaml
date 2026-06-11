@@ -106,8 +106,6 @@ fapiPepRs:
     igClientSecret: "cGFzc3dvcmQ="
     igIDMPassword: "MHBlbkJhbmtpbmch"
     igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
-    igMetricsPassword: "cGFzc3dvcmQ="
-    igMetricsUsername: "dXNlcg=="
 
 fidcConfigurator:
   enabled: "true"

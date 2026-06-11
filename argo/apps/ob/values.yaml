@@ -62,7 +62,6 @@ fapiPepAs:
       host: "as-sapig.dev-cdk-ob.forgerock.financial"
       tls:
         host: "as-sapig.dev-cdk-ob.forgerock.financial"
-    enableStudio: true
   secrets:
     igAgentID: "aWctYWdlbnQ="
     igAgentPassword: "cGFzc3dvcmQ="
@@ -70,8 +69,6 @@ fapiPepAs:
     igClientSecret: "cGFzc3dvcmQ="
     igIDMPassword: "MHBlbkJhbmtpbmch"
     igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
-    igMetricsPassword: "cGFzc3dvcmQ="
-    igMetricsUsername: "dXNlcg=="
 
 fapiPepRs:
   branch: "HEAD"
@@ -94,7 +91,6 @@ fapiPepRs:
       repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-ob"
       tag: "latest"
   ingress:
-    enableStudio: true
     rsMtls:
       host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
       tls:
@@ -110,8 +106,6 @@ fapiPepRs:
     igClientSecret: "cGFzc3dvcmQ="
     igIDMPassword: "MHBlbkJhbmtpbmch"
     igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
-    igMetricsPassword: "cGFzc3dvcmQ="
-    igMetricsUsername: "dXNlcg=="
     igOBASPSPSigningKeystoreKeypass: "cGFzc3dvcmQ="
     igOBASPSPSigningKeystoreStorepass: "cGFzc3dvcmQ="
     mongodbConsentPassword: "TDNoNXd4czRkRnZW"
