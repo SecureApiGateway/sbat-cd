@@ -35,7 +35,7 @@ spec:
           value: {{ .Values.sampleTrustedDirectory.ingress.host }}
         - name: ingress.tls.host
           value: {{ .Values.sampleTrustedDirectory.ingress.tls.host }}
-    path: openig-apps/openig-sample-trusted-directory/helm/sample-trusted-directory
+    path: openig-helm/sample-trusted-directory
     repoURL: https://github.com/ping-rocks/openig.git
     targetRevision: {{ .Values.sampleTrustedDirectory.branch }}
   syncPolicy:
