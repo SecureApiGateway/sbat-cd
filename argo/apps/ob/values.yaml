@@ -35,40 +35,31 @@ externalCert:
     googleSecretName: "am-oauth2-ca-certs"
 
 fapiPepAs:
+  repoURL: "https://github.com/ping-rocks/openig.git"
   branch: "HEAD"
-  configmap:
-    amRealm: "alpha"
-    asFQDN: "as-sapig.dev-cdk-ob.forgerock.financial"
-    asMtlsFQDN: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
-    baseFQDN: "dev-cdk-ob.forgerock.financial"
-    cloudType: "CDK"
-    identityPlatformFQDN: "iam.dev-cdk-ob.forgerock.financial"
-    sapigType: "ob"
-    testDirectoryFQDN: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
+  authorizationServer:
+    realm: "alpha"
+    fqdn: "as-sapig.dev-cdk-ob.forgerock.financial"
+    mtlsFqdn: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    baseFqdn: "dev-cdk-ob.forgerock.financial"
+  identityPlatform:
+    fqdn: "iam.dev-cdk-ob.forgerock.financial"
+    googleSecretStoreProject: "sbat-gcr-develop"
+  aic:
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-ob-am-oauth2-ca-certs"
-    userObject: "user"
+  pingGateway:
+    oauth2Client:
+      id: "aWctY2xpZW50"
+      secret: "cGFzc3dvcmQ="
+    idm:
+      user: "c2VydmljZV9hY2NvdW50Lmln"
+      password: "MHBlbkJhbmtpbmch"
   deployment:
     image:
-      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-as"
+      repo: "gcr.io/forgerock-io/ig-fapi-pep-as/docker-build"
       tag: "latest"
-  ingress:
-    asMtls:
-      host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
-      tls:
-        host: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
-    asSapig:
-      host: "as-sapig.dev-cdk-ob.forgerock.financial"
-      tls:
-        host: "as-sapig.dev-cdk-ob.forgerock.financial"
-  secrets:
-    igAgentID: "aWctYWdlbnQ="
-    igAgentPassword: "cGFzc3dvcmQ="
-    igClientID: "aWctY2xpZW50"
-    igClientSecret: "cGFzc3dvcmQ="
-    igIDMPassword: "MHBlbkJhbmtpbmch"
-    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
 
 fapiPepRs:
   branch: "HEAD"
@@ -116,6 +107,9 @@ fapiPepRs:
 fidcConfigurator:
   enabled: "true"
   branch: "HEAD"
+  asDeploymentConfigMap: "ig-fapi-pep-as-config"
+  rsDeploymentConfigMap: "rs-sapig-deployment-config"
+  asSecret: "ig-fapi-pep-as-secrets"
   image:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
     tag: "latest"
@@ -170,6 +164,7 @@ sampleTrustedDirectory:
 
 testUserAccountCreator:
   branch: "HEAD"
+  asDeploymentConfigMap: "ig-fapi-pep-as-config"
   deployment:
     type: "CronJob"
   image:

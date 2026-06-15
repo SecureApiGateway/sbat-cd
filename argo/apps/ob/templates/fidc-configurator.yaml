@@ -20,14 +20,20 @@ spec:
       parameters:
       - name: job.environment.cloudType
         value: {{ .Values.environment.cloudType }}
+      - name: job.environment.sapigType
+        value: {{ .Values.environment.sapigType }}
       - name: job.image.repo
         value: {{ .Values.fidcConfigurator.image.repo}}
       - name: job.image.tag
         value: {{ .Values.fidcConfigurator.image.tag }}
       - name: job.enabled
         value: {{ .Values.fidcConfigurator.enabled | quote }}
-      - name: job.environment.sapigType
-        value: ob
+      - name: job.environment.asDeploymentConfigMap
+        value: {{ .Values.fidcConfigurator.asDeploymentConfigMap }}
+      - name: job.environment.rsDeploymentConfigMap
+        value: {{ .Values.fidcConfigurator.rsDeploymentConfigMap }}
+      - name: job.environment.asSecret
+        value: {{ .Values.fidcConfigurator.asSecret }}
     path: _infra/helm/securebanking-openbanking-uk-iam-initializer
     repoURL: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk-fidc-initializer
     targetRevision: {{ .Values.fidcConfigurator.branch }}
