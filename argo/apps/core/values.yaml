@@ -59,47 +59,46 @@ fapiPepAs:
       password: "MHBlbkJhbmtpbmch"
 
 fapiPepRs:
+  repoURL: "https://github.com/ping-rocks/openig.git"
   branch: "HEAD"
-  configmap:
-    amRealm: "alpha"
-    asFQDN: "as-sapig.dev-cdk-core.forgerock.financial"
-    baseFQDN: "dev-cdk-core.forgerock.financial"
-    cloudType: "CDK"
-    identityPlatformFQDN: "iam.dev-cdk-core.forgerock.financial"
-    rsFQDN: "rs-sapig.dev-cdk-core.forgerock.financial"
-    rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
-    sapigType: "core"
+  authorizationServer:
+    realm: "alpha"
+    fqdn: "as-sapig.dev-cdk-core.forgerock.financial"
+    baseFqdn: "dev-cdk-core.forgerock.financial"
+  identityPlatform:
+    fqdn: "iam.dev-cdk-core.forgerock.financial"
+    type: "CDK"
     userObject: "user"
+  resourceServer:
+    fqdn: "rs-sapig.dev-cdk-core.forgerock.financial"
+    mtlsFqdn: "rs-mtls.sapig.dev-cdk-core.forgerock.financial"
+    gatewayDataRepoUri: "http://ig:80"
+    oauth2Client:
+      id: "aWctY2xpZW50"
+      secret: "cGFzc3dvcmQ="
+    idm:
+      user: "c2VydmljZV9hY2NvdW50Lmln"
+      password: "MHBlbkJhbmtpbmch"
+  aic:
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
     identityGoogleSecretStoreOAuth2CACertsSecretName: "esv-sapig-core-am-oauth2-ca-certs"
   deployment:
     image:
-      repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/fapi-pep-rs-core"
+      repo: "gcr.io/forgerock-io/ig-fapi-pep-rs/docker-build"
       tag: "latest"
   ingress:
-    enableStudio: true
-    rsMtls:
-      host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
-      tls:
-        host: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
-    rsSapig:
-      host: "rs-sapig.dev-cdk-ob.forgerock.financial"
-      tls:
-        host: "rs-sapig.dev-cdk-ob.forgerock.financial"
-  secrets:
-    igAgentID: "aWctYWdlbnQ="
-    igAgentPassword: "cGFzc3dvcmQ="
-    igClientID: "aWctY2xpZW50"
-    igClientSecret: "cGFzc3dvcmQ="
-    igIDMPassword: "MHBlbkJhbmtpbmch"
-    igIDMUser: "c2VydmljZV9hY2NvdW50Lmln"
+    mtls:
+      serverCertSecret: "fapi-pep-rs-mtls-tls-cert"
+      clientCaSecret: "fapi-pep-rs-mtls-ca-certs"
+    tls:
+      serverCertSecret: "fapi-pep-rs-tls-cert"
 
 fidcConfigurator:
   enabled: "true"
   branch: "HEAD"
   asDeploymentConfigMap: "ig-fapi-pep-as-config"
-  rsDeploymentConfigMap: "rs-sapig-deployment-config"
+  rsDeploymentConfigMap: "ig-fapi-pep-rs-config"
   asSecret: "ig-fapi-pep-as-secrets"
   image:
     repo: "europe-west4-docker.pkg.dev/sbat-gcr-develop/sapig-docker-artifact/securebanking/secureopenbanking-uk-iam-initializer"
