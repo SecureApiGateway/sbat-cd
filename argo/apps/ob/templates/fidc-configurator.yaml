@@ -34,6 +34,8 @@ spec:
         value: {{ .Values.fidcConfigurator.rsDeploymentConfigMap }}
       - name: job.environment.asSecret
         value: {{ .Values.fidcConfigurator.asSecret }}
+      - name: job.environment.rsObSecret
+        value: {{ .Values.fidcConfigurator.rsObSecret }}
     path: _infra/helm/securebanking-openbanking-uk-iam-initializer
     repoURL: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk-fidc-initializer
     targetRevision: {{ .Values.fidcConfigurator.branch }}
