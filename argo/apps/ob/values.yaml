@@ -43,6 +43,7 @@ fapiPepAs:
     mtlsFqdn: "as-mtls.sapig.dev-cdk-ob.forgerock.financial"
     baseFqdn: "dev-cdk-ob.forgerock.financial"
   identityPlatform:
+    type: "CDK"
     fqdn: "iam.dev-cdk-ob.forgerock.financial"
     googleSecretStoreProject: "sbat-gcr-develop"
   aic:
