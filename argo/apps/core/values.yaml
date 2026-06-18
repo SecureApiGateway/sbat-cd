@@ -42,7 +42,7 @@ fapiPepAs:
   identityPlatform:
     type: "CDK"
     fqdn: "iam.dev-cdk-core.forgerock.financial"
-    googleSecretStoreProject: "sbat-gcr-develop"
+    googleSecretStoreProject: "sbat-dev"
   aic:
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
