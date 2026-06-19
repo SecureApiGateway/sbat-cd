@@ -31,6 +31,8 @@ spec:
           value: {{ .Values.fapiPepRs.resourceServer.fqdn }}
         - name: resourceServer.mtlsFqdn
           value: {{ .Values.fapiPepRs.resourceServer.mtlsFqdn }}
+        - name: resourceServer.userObject
+          value: {{ .Values.fapiPepRs.resourceServer.userObject }}
         - name: resourceServer.oauth2Client.id
           value: {{ .Values.fapiPepRs.resourceServer.oauth2Client.id }}
         - name: resourceServer.oauth2Client.secret

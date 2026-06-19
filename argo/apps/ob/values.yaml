@@ -74,6 +74,7 @@ fapiPepRs:
   resourceServer:
     fqdn: "rs-sapig.dev-cdk-ob.forgerock.financial"
     mtlsFqdn: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
+    userObject: "user"
     oauth2Client:
       id: "aWctY2xpZW50"
       secret: "cGFzc3dvcmQ="
