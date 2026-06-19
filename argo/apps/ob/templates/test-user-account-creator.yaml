@@ -20,7 +20,7 @@ spec:
       parameters:
       - name: cronjob.environment.cloudType
         value: {{ .Values.environment.cloudType }}
-      - name: job.environment.sapigType
+      - name: cronjob.environment.sapigType
         value: {{ .Values.environment.sapigType }}
       - name: cronjob.image.repo
         value: {{ .Values.testUserAccountCreator.image.repo}}
