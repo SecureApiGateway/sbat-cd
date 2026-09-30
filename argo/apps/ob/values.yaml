@@ -92,6 +92,10 @@ fapiPepRs:
     rsMtlsFQDN: "rs-mtls.sapig.dev-cdk-ob.forgerock.financial"
     sapigType: "ob"
     testDirectoryFQDN: "test-trusted-directory.dev-cdk-ob.forgerock.financial"
+    # Managed user object in the identity platform. This default only suits CDK deployments
+    # (object "user"). FIDC/AIC environments override it per-environment to <amRealm>_user
+    # (e.g. alpha_user) - the object the test data initializer creates users under.
+    # See OPENIG-10514 / OPENIG-11024.
     userObject: "user"
     identityDefaultUserAuthenticationService: "PasswordGrant"
     identityGoogleSecretStoreName: "ESV"
